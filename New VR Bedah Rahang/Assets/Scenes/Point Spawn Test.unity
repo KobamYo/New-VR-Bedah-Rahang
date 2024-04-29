@@ -878,6 +878,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: cf41b1814cd0fe243a64c7d3ab97119e, type: 3}
+      propertyPath: m_TagString
+      value: Skull
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1169,7 +1173,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f2694c8ab8c844ea8b40c7fbafd5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+  planePrefab: {fileID: 7695875845161576432, guid: 4832648936a369d418d29c8a68028bb9, type: 3}
+  lineRenderer: {fileID: 2809052436464372556, guid: 8e47fdca944e0f6429e45b88cf2832f5, type: 3}
 --- !u!1 &668965757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2203,6 +2209,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8f627bda953c3664498c929fd2a10eba, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -2515,7 +2525,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84f2694c8ab8c844ea8b40c7fbafd5be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spherePrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+  pointPrefab: {fileID: 0}
+  planePrefab: {fileID: 0}
+  lineRenderer: {fileID: 0}
 --- !u!1001 &1616106632
 PrefabInstance:
   m_ObjectHideFlags: 0
