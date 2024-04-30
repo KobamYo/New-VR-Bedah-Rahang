@@ -1,3 +1,4 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,42 +16,41 @@ public class SpawnOnCollision : MonoBehaviour
 
     private bool hasCollided = false;
     private bool canSpawn = true;
-    private float cooldownDuration = 0.5f;
+    private float cooldownDuration = 1f;
+
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (!hasCollided && collision.gameObject.CompareTag("Skull"))
+        if (!hasCollided && collision.gameObject.CompareTag("Mandible"))
         {
             ContactPoint firstContact = collision.contacts[0];
             contactPoint = firstContact.point;
             hasCollided = true;
-            Debug.Log("Collision Entered with Cube");
         }
     }
 
     private void OnCollisionExit(Collision collision)
     {
-        if (hasCollided && canSpawn && collision.gameObject.CompareTag("Skull"))
+        if (hasCollided && canSpawn && collision.gameObject.CompareTag("Mandible"))
         {
             if (startPoint == null)
             {
                 startPoint = Instantiate(pointPrefab, contactPoint, Quaternion.identity);
                 startPoint.transform.SetParent(collision.gameObject.transform);
-                Debug.Log("Sphere Spawned on Exit as First Point");
             }
             else if (endPoint == null)
             {
                 endPoint = Instantiate(pointPrefab, contactPoint, Quaternion.identity);
                 endPoint.transform.SetParent(collision.gameObject.transform);
-                Debug.Log("Second Point Spawned on Exit as End Point");
 
                 CreateLineBetweenPoints();
-                SpawnPlaneAlongLine();
+                SpawnPlane();
 
                 startPoint = null;
                 endPoint = null;
                 hasCollided = false;
                 canSpawn = false;
+
                 Invoke("ResetCooldown", cooldownDuration);
             }
         }
@@ -65,17 +65,18 @@ public class SpawnOnCollision : MonoBehaviour
         }
     }
 
-    private void SpawnPlaneAlongLine()
+    private void SpawnPlane()
     {
         if (startPoint != null && endPoint != null && planePrefab != null)
         {
             Vector3 planePosition = (startPoint.transform.position + endPoint.transform.position) / 2f;
-            Quaternion planeRotation = Quaternion.LookRotation(endPoint.transform.position - startPoint.transform.position);
+            Vector3 lineDirection = endPoint.transform.position - startPoint.transform.position;
+            Quaternion planeRotation = Quaternion.LookRotation(lineDirection);
 
             GameObject plane = Instantiate(planePrefab, planePosition, planeRotation);
-            Debug.Log("Plane Spawned along Line");
         }
     }
+
     private void ResetCooldown()
     {
         canSpawn = true;

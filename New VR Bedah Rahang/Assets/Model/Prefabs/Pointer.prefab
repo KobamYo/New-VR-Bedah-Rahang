@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 6975453421819198094}
   - component: {fileID: 4096575802328888964}
   - component: {fileID: 5728441791368307269}
+  - component: {fileID: 5372205272084997391}
   m_Layer: 0
   m_Name: Pointer
   m_TagString: Untagged
@@ -133,3 +134,20 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &5372205272084997391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1880723308242611344}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84f2694c8ab8c844ea8b40c7fbafd5be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+  planePrefab: {fileID: 7695875845161576432, guid: 4832648936a369d418d29c8a68028bb9, type: 3}
+  lineRenderer: {fileID: 2809052436464372556, guid: 8e47fdca944e0f6429e45b88cf2832f5, type: 3}
+  normalMaterial: {fileID: 2100000, guid: e28bd84c072965542aba331007acf47a, type: 2}
+  cooldownMaterial: {fileID: 2100000, guid: 8dfd966cd2e4acc42aa5803f8fcf43e3, type: 2}
