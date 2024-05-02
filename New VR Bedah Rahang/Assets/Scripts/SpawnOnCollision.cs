@@ -11,7 +11,6 @@ public class SpawnOnCollision : MonoBehaviour
 
     private GameObject startPoint;
     private GameObject endPoint;
-
     private Vector3 contactPoint;
 
     private bool hasCollided = false;
@@ -43,7 +42,7 @@ public class SpawnOnCollision : MonoBehaviour
                 endPoint = Instantiate(pointPrefab, contactPoint, Quaternion.identity);
                 endPoint.transform.SetParent(collision.gameObject.transform);
 
-                CreateLineBetweenPoints();
+                DrawLineBetweenPoints();
                 SpawnPlane();
 
                 startPoint = null;
@@ -55,7 +54,7 @@ public class SpawnOnCollision : MonoBehaviour
             }
         }
     }
-    private void CreateLineBetweenPoints()
+    private void DrawLineBetweenPoints()
     {
         if (startPoint != null && endPoint != null && lineRenderer != null)
         {
@@ -74,6 +73,7 @@ public class SpawnOnCollision : MonoBehaviour
             Quaternion planeRotation = Quaternion.LookRotation(lineDirection);
 
             GameObject plane = Instantiate(planePrefab, planePosition, planeRotation);
+            plane.transform.rotation = Quaternion.LookRotation(endPoint.transform.position - startPoint.transform.position, Vector3.up);
         }
     }
 
