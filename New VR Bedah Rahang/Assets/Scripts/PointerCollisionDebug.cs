@@ -4,18 +4,21 @@ using UnityEngine;
 
 public class PointerCollisionDebug : MonoBehaviour
 {
-    private void OnColliderEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
+        collision.gameObject.CompareTag("Mandible");
         Debug.Log("Collider Enter");
     }
 
-    private void OnColliderStay(Collider other)
+    private void OnCollisionStay(Collision collision)
     {
+        collision.gameObject.CompareTag("Mandible");
         Debug.Log("Collider Stay");
     }
 
-    private void OnColliderExit(Collider other)
+    private void OnCollisionExit(Collision collision)
     {
+        collision.gameObject.CompareTag("Mandible");
         Debug.Log("Collider Exit");
     }
 }

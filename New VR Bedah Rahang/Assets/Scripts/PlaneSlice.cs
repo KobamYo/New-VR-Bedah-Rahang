@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
 using UnityEngine.InputSystem;
+using Oculus.Interaction;
 
 public class PlaneSlice : MonoBehaviour
 {
@@ -29,5 +30,11 @@ public class PlaneSlice : MonoBehaviour
 
             Destroy(target);
         }
+    }
+
+    public void SetupSlicedComponent(GameObject slicedObject)
+    {
+        Rigidbody rigidbody = slicedObject.AddComponent<Rigidbody>();
+        OVRGrabbable grabbable = slicedObject.AddComponent<OVRGrabbable>();
     }
 }

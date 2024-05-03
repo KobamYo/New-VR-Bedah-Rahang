@@ -17,7 +17,6 @@ public class SpawnOnCollision : MonoBehaviour
     private bool canSpawn = true;
     private float cooldownDuration = 1f;
 
-
     private void OnCollisionEnter(Collision collision)
     {
         if (!hasCollided && collision.gameObject.CompareTag("Mandible"))
@@ -43,7 +42,7 @@ public class SpawnOnCollision : MonoBehaviour
                 endPoint.transform.SetParent(collision.gameObject.transform);
 
                 DrawLineBetweenPoints();
-                SpawnPlane();
+                // SpawnPlane();
 
                 startPoint = null;
                 endPoint = null;
