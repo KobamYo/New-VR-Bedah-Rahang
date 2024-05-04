@@ -15,14 +15,13 @@ public class SpawnOnCollision : MonoBehaviour
 
     private bool hasCollided = false;
     private bool canSpawn = true;
-    private float cooldownDuration = 1f;
 
     private void OnCollisionEnter(Collision collision)
     {
         if (!hasCollided && collision.gameObject.CompareTag("Mandible"))
         {
-            ContactPoint firstContact = collision.contacts[0];
-            contactPoint = firstContact.point;
+            ContactPoint contact = collision.contacts[0];
+            contactPoint = contact.point;
             hasCollided = true;
         }
     }
@@ -42,14 +41,18 @@ public class SpawnOnCollision : MonoBehaviour
                 endPoint.transform.SetParent(collision.gameObject.transform);
 
                 DrawLineBetweenPoints();
-                // SpawnPlane();
+                SpawnPlane();
+
+                if (startPoint != null) Destroy(startPoint);
+
+                if (endPoint != null) Destroy(endPoint);
 
                 startPoint = null;
                 endPoint = null;
                 hasCollided = false;
                 canSpawn = false;
 
-                Invoke("ResetCooldown", cooldownDuration);
+                Invoke("ResetCooldown", 1.5f);
             }
         }
     }
