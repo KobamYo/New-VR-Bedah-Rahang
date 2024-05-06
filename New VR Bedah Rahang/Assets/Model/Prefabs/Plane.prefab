@@ -317,4 +317,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  plane: {fileID: 7695875845161576432}
+  visualizeNormal: 1

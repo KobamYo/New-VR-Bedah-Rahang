@@ -7,7 +7,13 @@ using BzKovSoft.ObjectSlicer;
 public class PlaneSlice_BzKSoft : MonoBehaviour
 {
     public GameObject target;
-    public GameObject plane;
+
+    private GameObject plane;
+
+    void Start()
+    {
+        plane = gameObject;
+    }
 
     void Update()
     {
@@ -19,14 +25,14 @@ public class PlaneSlice_BzKSoft : MonoBehaviour
 
     async void Slice()
     {
-        var sliceable = target.transform.GetComponent<IBzMeshSlicer>();
+        var sliceable = target.GetComponent<IBzMeshSlicer>();
 
         if (sliceable != null)
         {
             Vector3 planeNormal = plane.transform.up;
-            Vector3 targetPosition = target.transform.position;
+            Vector3 planePosition = plane.transform.position;
             
-            Plane slicingPlane = new Plane(planeNormal, targetPosition);
+            Plane slicingPlane = new Plane(planeNormal, planePosition);
 
             // Perform the slice operation using the manually positioned plane prefab
             await sliceable.SliceAsync(slicingPlane); 
