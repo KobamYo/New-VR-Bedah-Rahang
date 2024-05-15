@@ -546,6 +546,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.026453452, y: 0.080555566, z: 0.08261167}
   m_Center: {x: 0.11581781, y: -0.16412039, z: 0.018732078}
+--- !u!1 &192418197 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3603028986810795837, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
+  m_PrefabInstance: {fileID: 1701180895}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &206590936
 GameObject:
   m_ObjectHideFlags: 0
@@ -3523,16 +3528,50 @@ PrefabInstance:
       propertyPath: lineRenderer
       value: 
       objectReference: {fileID: 517657971}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 0}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3603028986810795837, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1701180902}
+    - targetCorrespondingSourceObject: {fileID: 3603028986810795837, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1701180903}
   m_SourcePrefab: {fileID: 100100000, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
 --- !u!4 &1701180896 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 419737709206606545, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
   m_PrefabInstance: {fileID: 1701180895}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1701180902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192418197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a237e39d6ed8ff499c07a26249b3a9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointPrefab: {fileID: 8775877334547465219, guid: 22333679bf034ba4c8bb31ce5577ce7b, type: 3}
+--- !u!114 &1701180903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 192418197}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cfdec1891219964db872d13a1834057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planePrefab: {fileID: 7695875845161576432, guid: 4832648936a369d418d29c8a68028bb9, type: 3}
+  lineRenderer: {fileID: 517657971}
 --- !u!1 &1708371838
 GameObject:
   m_ObjectHideFlags: 0
