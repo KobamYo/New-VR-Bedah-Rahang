@@ -6,13 +6,8 @@ using UnityEngine;
 public class SpawnPlane : MonoBehaviour
 {
     [SerializeField]
-    private GameObject mandible;
+    private GameObject target;
 
-    //[SerializeField]
-    /// <summary>
-    /// private PlaneSlice_EzySlice planeSlice;
-    /// </summary>
-    /// 
     private PlaneSlice_EzySlice planeSlice1;
     private PlaneSlice_EzySlice planeSlice2;
 
@@ -87,7 +82,7 @@ public class SpawnPlane : MonoBehaviour
 
             Transform planeTransform1 = planeObject1.gameObject.transform;
             planeTransform1.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-            planeTransform1.transform.SetParent(mandible.transform);
+            planeTransform1.transform.SetParent(target.transform);
 
             planeSlice1.firstPlane = planeTransform1;
         }
@@ -98,7 +93,7 @@ public class SpawnPlane : MonoBehaviour
             Debug.Log(planeObject2);
             Transform planeTransform2 = planeObject2.gameObject.transform;
             planeTransform2.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
-            planeTransform2.transform.SetParent(mandible.transform);
+            planeTransform2.transform.SetParent(target.transform);
 
             planeSlice1.secondPlane = planeTransform2;
             planeSlice2.secondPlane = planeTransform2;

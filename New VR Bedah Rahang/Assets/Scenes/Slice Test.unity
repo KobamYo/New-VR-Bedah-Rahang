@@ -1207,6 +1207,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3020945641960929934, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 919132148263089863}
+    - target: {fileID: 3020945641960929934, guid: 4096ee4ae44cc8443b784f992cd7932e, type: 3}
       propertyPath: mandible
       value: 
       objectReference: {fileID: 919132148263089863}
