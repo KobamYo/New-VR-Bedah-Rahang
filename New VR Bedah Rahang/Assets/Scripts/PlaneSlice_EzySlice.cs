@@ -7,7 +7,8 @@ using Oculus.Interaction;
 
 public class PlaneSlice_EzySlice : MonoBehaviour
 {
-    public Transform plane;
+    public Transform firstPlane;
+    public Transform secondPlane;
     public GameObject target;
     public Material crossSectionMaterial;
 
@@ -15,18 +16,36 @@ public class PlaneSlice_EzySlice : MonoBehaviour
     {
         if (Keyboard.current.spaceKey.wasPressedThisFrame)
         {
+            if (firstPlane == null || secondPlane == null)
+            {
+                return;
+            }
+
             Slice(target);
         }
     }
 
     public void Slice(GameObject target)
     {
-        SlicedHull hull = target.Slice(plane.position, plane.up);
+        // Store references to the parent GameObject and the sliced parts
+        target.transform.parent = null;
+        SlicedHull firstSlice = target.Slice(firstPlane.position, firstPlane.up);
 
-        if (hull != null)
+        if (firstSlice != null)
         {
-            GameObject upperHull = hull.CreateUpperHull(target, crossSectionMaterial);
-            GameObject lowerHull = hull.CreateLowerHull(target, crossSectionMaterial);
+            GameObject upperHull = firstSlice.CreateUpperHull(target, crossSectionMaterial);
+            GameObject lowerHull = firstSlice.CreateLowerHull(target, crossSectionMaterial);
+
+            SlicedHull secondSlice = lowerHull.Slice(secondPlane.position, secondPlane.up);
+
+            if (secondSlice != null)
+            {
+                GameObject middleHull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
+                GameObject finalLowerHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
+
+                Destroy(lowerHull);
+                Destroy(finalLowerHull);
+            }
 
             Destroy(target);
         }

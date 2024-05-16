@@ -6,14 +6,25 @@ using UnityEngine;
 public class SpawnOnCollision_ver2 : MonoBehaviour
 {
     public GameObject pointPrefab;
-    public LineRenderer lineRenderer;
 
+    private LineRenderer lineRenderer;
     private GameObject startPoint;
     private GameObject endPoint;
     private Vector3 contactPoint;
     
     private bool hasCollided = false;
 
+    void Start()
+    {
+        lineRenderer = GetComponent<LineRenderer>();
+
+        if (lineRenderer == null)
+        {
+            lineRenderer = gameObject.AddComponent<LineRenderer>();
+            lineRenderer.positionCount = 2;
+            lineRenderer.enabled = false;
+        }
+    }
 
     private void OnCollisionEnter(Collision collision)
     {

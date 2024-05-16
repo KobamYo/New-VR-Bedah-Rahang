@@ -1,35 +1,67 @@
+using Oculus.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SpawnPlane : MonoBehaviour
 {
+    [SerializeField]
+    private GameObject mandible;
+
+    //[SerializeField]
+    /// <summary>
+    /// private PlaneSlice_EzySlice planeSlice;
+    /// </summary>
+    /// 
+    private PlaneSlice_EzySlice planeSlice1;
+    private PlaneSlice_EzySlice planeSlice2;
+
     public GameObject planePrefab;
-    public LineRenderer lineRenderer;
+    public GameObject planeObject1;
+    public GameObject planeObject2;
 
     private GameObject startPoint;
     private GameObject endPoint;
+    private LineRenderer lineRenderer;
+    
     private bool lineDrawn = false;
+
+    void Start()
+    {
+        // Initialize LineRenderer if not already assigned
+        lineRenderer = GetComponent<LineRenderer>();
+
+        if (lineRenderer == null)
+        {
+            lineRenderer = gameObject.AddComponent<LineRenderer>();
+            lineRenderer.positionCount = 2;
+            lineRenderer.enabled = false;
+        }
+    }
 
     void Update()
     {
         GameObject[] points = GameObject.FindGameObjectsWithTag("Point");
+        
         if (points.Length >= 2 && !lineDrawn)
         {
             startPoint = points[0];
             endPoint = points[1];
 
+            lineRenderer.enabled = true;
             DrawLineBetweenPoints(startPoint.transform.position, endPoint.transform.position);
-            lineDrawn = true;
+            lineDrawn = true;  
         }
 
         if (lineDrawn)
         {
+            Debug.Log("MASUUK");
             SpawnPlaneAlongLine();
             Destroy(startPoint);
             Destroy(endPoint);
             lineDrawn = false;
         }
+        
     }
 
     private void DrawLineBetweenPoints(Vector3 start, Vector3 end)
@@ -48,9 +80,31 @@ public class SpawnPlane : MonoBehaviour
         Vector3 direction = endPoint.transform.position - startPoint.transform.position;
         Quaternion planeRotation = Quaternion.LookRotation(direction);
 
-        GameObject plane = Instantiate(planePrefab, planePosition, planeRotation);
-        plane.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+        if (planeObject1 == null)
+        {
+            planeObject1 = Instantiate(planePrefab, planePosition, planeRotation);
+            planeSlice1 = planeObject1.GetComponent<PlaneSlice_EzySlice>();
 
-        lineRenderer.positionCount = 0; // Clear the line
+            Transform planeTransform1 = planeObject1.gameObject.transform;
+            planeTransform1.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            planeTransform1.transform.SetParent(mandible.transform);
+
+            planeSlice1.firstPlane = planeTransform1;
+        }
+        else
+        {
+            planeObject2 = Instantiate(planePrefab, planePosition, planeRotation);
+            planeSlice2 = planeObject1.GetComponent<PlaneSlice_EzySlice>();
+            Debug.Log(planeObject2);
+            Transform planeTransform2 = planeObject2.gameObject.transform;
+            planeTransform2.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
+            planeTransform2.transform.SetParent(mandible.transform);
+
+            planeSlice1.secondPlane = planeTransform2;
+            planeSlice2.secondPlane = planeTransform2;
+            planeSlice2.firstPlane = planeSlice1.transform;
+        }
+
+        lineRenderer.positionCount = 0;
     }
 }
