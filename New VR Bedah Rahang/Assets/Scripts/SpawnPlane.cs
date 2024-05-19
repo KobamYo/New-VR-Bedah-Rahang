@@ -50,7 +50,6 @@ public class SpawnPlane : MonoBehaviour
 
         if (lineDrawn)
         {
-            Debug.Log("MASUUK");
             SpawnPlaneAlongLine();
             Destroy(startPoint);
             Destroy(endPoint);
@@ -85,12 +84,13 @@ public class SpawnPlane : MonoBehaviour
             planeTransform1.transform.SetParent(target.transform);
 
             planeSlice1.firstPlane = planeTransform1;
+            planeSlice1.target = target;
         }
         else
         {
             planeObject2 = Instantiate(planePrefab, planePosition, planeRotation);
-            planeSlice2 = planeObject1.GetComponent<PlaneSlice_EzySlice>();
-            Debug.Log(planeObject2);
+            planeSlice2 = planeObject2.GetComponent<PlaneSlice_EzySlice>();
+
             Transform planeTransform2 = planeObject2.gameObject.transform;
             planeTransform2.transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
             planeTransform2.transform.SetParent(target.transform);
@@ -98,6 +98,7 @@ public class SpawnPlane : MonoBehaviour
             planeSlice1.secondPlane = planeTransform2;
             planeSlice2.secondPlane = planeTransform2;
             planeSlice2.firstPlane = planeSlice1.transform;
+            planeSlice2.target = target;
         }
 
         lineRenderer.positionCount = 0;

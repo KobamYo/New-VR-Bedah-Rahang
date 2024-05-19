@@ -318,7 +318,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstPlane: {fileID: 0}
   secondPlane: {fileID: 0}
-  target: {fileID: 919132149155446097, guid: de3fedbf89cfc8c47a0cab0d01fbcca4, type: 3}
-  crossSectionMaterial: {fileID: 2100000, guid: 8dfd966cd2e4acc42aa5803f8fcf43e3, type: 2}
-  firstPlaneObject: {fileID: 0}
-  secondPlaneObject: {fileID: 0}
+  target: {fileID: 0}
+  crossSectionMaterial: {fileID: 2100000, guid: 4ae8f0b860a1a5d4fac3bfa0024dea70, type: 2}

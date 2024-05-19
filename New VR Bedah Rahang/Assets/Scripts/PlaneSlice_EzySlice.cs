@@ -40,20 +40,20 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
             if (secondSlice != null)
             {
-                GameObject middleHull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
-                GameObject finalLowerHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
+                GameObject finalLowerhull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
+                GameObject middleHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
 
                 Destroy(lowerHull);
-                Destroy(finalLowerHull);
+                middleHull.SetActive(false);
             }
 
-            Destroy(target);
+            target.SetActive(false);
         }
     }
 
     public void SetupSlicedComponent(GameObject slicedObject)
     {
+        Collider collider = slicedObject.AddComponent<MeshCollider>();
         Rigidbody rigidbody = slicedObject.AddComponent<Rigidbody>();
-        OVRGrabbable grabbable = slicedObject.AddComponent<OVRGrabbable>();
     }
 }

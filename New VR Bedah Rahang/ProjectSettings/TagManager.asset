@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Mandible
   - Point
+  - Skull
   layers:
   - Default
   - TransparentFX
