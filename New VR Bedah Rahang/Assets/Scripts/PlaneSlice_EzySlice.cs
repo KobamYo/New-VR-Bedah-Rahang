@@ -12,17 +12,8 @@ public class PlaneSlice_EzySlice : MonoBehaviour
     public GameObject target;
     public Material crossSectionMaterial;
 
-    private GameObject clone;
     private GameObject skullParent;
     private List<GameObject> slicedParts = new List<GameObject>();
-
-    void Start()
-    {
-        // Clone the original target to restore later
-        clone = Instantiate(target);
-        clone.transform.SetParent(clone.transform);
-        clone.SetActive(false); // Hide the clone
-    }
 
     void Update()
     {
@@ -45,8 +36,7 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
     public void Slice(GameObject target)
     {
-        // Store references to the parent GameObject and the sliced parts
-        target.transform.parent = null;
+        target.transform.parent = null; // Detach target from parent
         SlicedHull firstSlice = target.Slice(firstPlane.position, firstPlane.up);
 
         if (firstSlice != null)
@@ -54,7 +44,7 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             GameObject upperHull = firstSlice.CreateUpperHull(target, crossSectionMaterial);
             GameObject lowerHull = firstSlice.CreateLowerHull(target, crossSectionMaterial);
 
-            GameObject skullParent = GameObject.FindGameObjectWithTag("Skull");
+            skullParent = GameObject.FindGameObjectWithTag("Skull");
             upperHull.transform.SetParent(skullParent.transform);
             slicedParts.Add(upperHull);
             slicedParts.Add(lowerHull);
@@ -80,7 +70,6 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
     public void UndoSlice()
     {
-        // Destroy all sliced parts
         foreach (var part in slicedParts)
         {
             Destroy(part);
@@ -88,19 +77,8 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
         slicedParts.Clear();
 
-        // Reactivate the original target
-        target.SetActive(true);
-
-        // Set the target back as a child of the "Skull" GameObject
-        GameObject skullParent = GameObject.FindGameObjectWithTag("Skull");
-        target.transform.SetParent(skullParent.transform);
-
-        // Optionally, you can reset the position and rotation if needed
-        target.transform.position = clone.transform.position;
-        target.transform.rotation = clone.transform.rotation;
-
-        // Set the original clone back to inactive
-        clone.SetActive(false);
+        UndoManager.Instance.Undo();
+        Debug.Log("Undo");
     }
 
     public void SetupSlicedComponent(GameObject slicedObject)
