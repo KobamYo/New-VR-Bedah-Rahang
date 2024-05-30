@@ -7,10 +7,9 @@ public class UndoManager : MonoBehaviour
     private GameObject clone;
     private GameObject skullParent;
 
-    [SerializeField]
-    private GameObject target;
-
     private static UndoManager instance;
+
+    public GameObject target;
 
     // Property to get the instance
     public static UndoManager Instance
@@ -51,9 +50,21 @@ public class UndoManager : MonoBehaviour
         }
     }
 
-
     void Start()
     {
+        if (target != null)
+        {
+            CreateClone();
+        }
+    }
+
+    private void CreateClone()
+    {
+        if (clone != null)
+        {
+            Destroy(clone);
+        }
+
         // Clone the original target to restore later
         clone = Instantiate(target, target.transform.parent);
         skullParent = GameObject.FindGameObjectWithTag("Skull");
@@ -61,8 +72,10 @@ public class UndoManager : MonoBehaviour
         clone.SetActive(false); // Hide the clone
     }
 
-    public void Undo()
+    public void Undo(GameObject cloneTarget)
     {
+        clone = cloneTarget;
+        
         if (clone != null)
         {
             skullParent = GameObject.FindGameObjectWithTag("Skull");
