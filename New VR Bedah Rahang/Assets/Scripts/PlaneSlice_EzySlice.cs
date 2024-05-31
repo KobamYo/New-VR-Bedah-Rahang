@@ -12,16 +12,20 @@ public class PlaneSlice_EzySlice : MonoBehaviour
     public Material crossSectionMaterial;
 
     private GameObject skullParent;
-    private List<GameObject> slicedParts = new List<GameObject>();
+    private Stack<GameObject[]> slicedPartsStack = new Stack<GameObject[]>();
+    private GameObject originalTargetState;
 
     void Start()
     {
-        skullParent = GameObject.FindGameObjectWithTag("Skull");
-        
-        if (UndoManager.Instance != null)
-        {
-            UndoManager.Instance.Undo(target);
-        }
+        originalTargetState = Instantiate(target);
+        originalTargetState.SetActive(false);
+
+        //skullParent = GameObject.FindGameObjectWithTag("Skull");
+
+        //if (UndoManager.Instance != null)
+        //{
+        //    UndoManager.Instance.Undo(target);
+        //}
     }
 
     void Update()
@@ -38,7 +42,7 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
         if (Keyboard.current.zKey.wasPressedThisFrame)
         {
-            UndoSlice();
+            RevertSlice();
         }
 
     }
@@ -58,7 +62,7 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
             skullParent = GameObject.FindGameObjectWithTag("Skull");
             upperHull.transform.SetParent(skullParent.transform);
-            slicedParts.Add(upperHull);
+            // slicedParts.Add(upperHull);
 
             // Perform the second slice
             // It slice the first lower hull. From the first lower hull, it creates another upper hull and lower hull
@@ -67,35 +71,60 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
             if (secondSlice != null)
             {
-                GameObject seconUpperHull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
+                GameObject secondUpperHull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
                 GameObject middleHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
                 
-                seconUpperHull.transform.SetParent(skullParent.transform);
-                slicedParts.Add(seconUpperHull);
+                secondUpperHull.transform.SetParent(skullParent.transform);
+                // slicedParts.Add(seconUpperHull);
+                
+                // Store the sliced parts in the stack
+                slicedPartsStack.Push(new GameObject[] { upperHull, secondUpperHull });
 
                 Destroy(lowerHull);
                 Destroy(middleHull);
             }
 
-            Debug.Log(slicedParts.Count);
             target.SetActive(false); // Use this to set the target to be inactive
             // Destroy(target); // Use this to destroy the target
             // But apparently when I destroy the target, GameObject "Skull" can't be moved.
+            originalTargetState = target;
         }
     }
 
-    public void UndoSlice()
-    {   
-        foreach (var part in slicedParts)
+    public void RevertSlice()
+    {
+        // Check if there are sliced parts to revert
+        if (slicedPartsStack.Count > 0)
         {
-            Destroy(part);
+            // Destroy all the sliced parts
+            foreach (GameObject[] slicedParts in slicedPartsStack)
+            {
+                foreach (GameObject part in slicedParts)
+                {
+                    Destroy(part);
+                }
+            }
+            // Clear the stack
+            slicedPartsStack.Clear();
+
+            // Reactivate the original target and reset its state
+            target.SetActive(true);
+            originalTargetState.SetActive(false);
         }
-
-        slicedParts.Clear();
-
-        UndoManager.Instance.Undo(target);
-        Debug.Log("Undo");
     }
+
+    //public void UndoSlice()
+    //{   
+    //    foreach (var part in slicedParts)
+    //    {
+    //        Destroy(part);
+    //    }
+
+    //    slicedParts.Clear();
+
+    //    UndoManager.Instance.Undo(target);
+    //    Debug.Log("Undo");
+    //}
 
     public void SetupSlicedComponent(GameObject slicedObject)
     {
