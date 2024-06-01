@@ -12,13 +12,13 @@ public class PlaneSlice_EzySlice : MonoBehaviour
     public Material crossSectionMaterial;
 
     private GameObject skullParent;
-    private Stack<GameObject[]> slicedPartsStack = new Stack<GameObject[]>();
-    private GameObject originalTargetState;
+    private List<GameObject> slicedParts = new List<GameObject>();
+    // private GameObject originalTargetState;
+    private SliceState currentState = SliceState.Original;
 
     void Start()
     {
-        originalTargetState = Instantiate(target);
-        originalTargetState.SetActive(false);
+        skullParent = GameObject.FindGameObjectWithTag("Skull");
 
         //skullParent = GameObject.FindGameObjectWithTag("Skull");
 
@@ -28,27 +28,17 @@ public class PlaneSlice_EzySlice : MonoBehaviour
         //}
     }
 
-    void Update()
-    {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
-        {
-            if (firstPlane == null || secondPlane == null)
-            {
-                return;
-            }
-
-            Slice(target);
-        }
-
-        if (Keyboard.current.zKey.wasPressedThisFrame)
-        {
-            RevertSlice();
-        }
-
-    }
-
     public void Slice(GameObject target)
     {
+        Debug.Log("Slicing started");
+
+        // Clone the target when slicing
+        //if (originalTargetState == null)
+        //{
+        //    originalTargetState = Instantiate(target);
+        //    originalTargetState.SetActive(false);
+        //}
+
         target.transform.parent = null; // Detach target from parent
 
         // Perform the first slice
@@ -60,9 +50,7 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             GameObject upperHull = firstSlice.CreateUpperHull(target, crossSectionMaterial);
             GameObject lowerHull = firstSlice.CreateLowerHull(target, crossSectionMaterial);
 
-            skullParent = GameObject.FindGameObjectWithTag("Skull");
             upperHull.transform.SetParent(skullParent.transform);
-            // slicedParts.Add(upperHull);
 
             // Perform the second slice
             // It slice the first lower hull. From the first lower hull, it creates another upper hull and lower hull
@@ -75,10 +63,10 @@ public class PlaneSlice_EzySlice : MonoBehaviour
                 GameObject middleHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
                 
                 secondUpperHull.transform.SetParent(skullParent.transform);
-                // slicedParts.Add(seconUpperHull);
-                
-                // Store the sliced parts in the stack
-                slicedPartsStack.Push(new GameObject[] { upperHull, secondUpperHull });
+
+                // Store the sliced parts in the list
+                slicedParts.Add(upperHull);
+                slicedParts.Add(secondUpperHull);
 
                 Destroy(lowerHull);
                 Destroy(middleHull);
@@ -87,29 +75,28 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             target.SetActive(false); // Use this to set the target to be inactive
             // Destroy(target); // Use this to destroy the target
             // But apparently when I destroy the target, GameObject "Skull" can't be moved.
-            originalTargetState = target;
+            currentState = SliceState.Sliced;
+            Debug.Log("Slicing completed");
         }
     }
 
     public void RevertSlice()
     {
-        // Check if there are sliced parts to revert
-        if (slicedPartsStack.Count > 0)
+        Debug.Log("Reverting slice");
+        if (currentState == SliceState.Sliced)
         {
             // Destroy all the sliced parts
-            foreach (GameObject[] slicedParts in slicedPartsStack)
+            foreach (GameObject part in slicedParts)
             {
-                foreach (GameObject part in slicedParts)
-                {
-                    Destroy(part);
-                }
+                Destroy(part);
             }
-            // Clear the stack
-            slicedPartsStack.Clear();
+            slicedParts.Clear();
 
             // Reactivate the original target and reset its state
             target.SetActive(true);
-            originalTargetState.SetActive(false);
+
+            currentState = SliceState.Original;
+            Debug.Log("Revert completed");
         }
     }
 

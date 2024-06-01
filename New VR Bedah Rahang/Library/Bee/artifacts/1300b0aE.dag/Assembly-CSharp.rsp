@@ -573,6 +573,8 @@
 "Assets/Scripts/PlaneSlice_BzKSoft.cs"
 "Assets/Scripts/PlaneSlice_EzySlice.cs"
 "Assets/Scripts/PointerCollisionDebug.cs"
+"Assets/Scripts/SliceController.cs"
+"Assets/Scripts/SliceState.cs"
 "Assets/Scripts/SpawnOnCollision.cs"
 "Assets/Scripts/SpawnOnCollision_ver2.cs"
 "Assets/Scripts/SpawnOnCollision_ver3.cs"

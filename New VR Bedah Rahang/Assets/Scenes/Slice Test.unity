@@ -332,9 +332,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 127390401}
-  - component: {fileID: 127390402}
+  - component: {fileID: 127390403}
   m_Layer: 0
-  m_Name: Undo Manager
+  m_Name: Slice Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -355,7 +355,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &127390402
+--- !u!114 &127390403
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -364,10 +364,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 127390399}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 42baadb3b81a0164ca354da90b905ba5, type: 3}
+  m_Script: {fileID: 11500000, guid: 52e70ac4f88b7dd40b2f33c309b5a293, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 2017853073}
 --- !u!1001 &130959681
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3026,7 +3025,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 126d619cf4daa52469682f85c1378b4a, type: 3}
       propertyPath: m_RootOrder
@@ -3310,7 +3309,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &1708371839
 AudioListener:
   m_ObjectHideFlags: 0
