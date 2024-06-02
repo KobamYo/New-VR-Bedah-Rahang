@@ -19,25 +19,11 @@ public class PlaneSlice_EzySlice : MonoBehaviour
     void Start()
     {
         skullParent = GameObject.FindGameObjectWithTag("Skull");
-
-        //skullParent = GameObject.FindGameObjectWithTag("Skull");
-
-        //if (UndoManager.Instance != null)
-        //{
-        //    UndoManager.Instance.Undo(target);
-        //}
     }
 
     public void Slice(GameObject target)
     {
         Debug.Log("Slicing started");
-
-        // Clone the target when slicing
-        //if (originalTargetState == null)
-        //{
-        //    originalTargetState = Instantiate(target);
-        //    originalTargetState.SetActive(false);
-        //}
 
         target.transform.parent = null; // Detach target from parent
 
@@ -85,33 +71,19 @@ public class PlaneSlice_EzySlice : MonoBehaviour
         Debug.Log("Reverting slice");
         if (currentState == SliceState.Sliced)
         {
-            // Destroy all the sliced parts
             foreach (GameObject part in slicedParts)
             {
                 Destroy(part);
             }
             slicedParts.Clear();
 
-            // Reactivate the original target and reset its state
             target.SetActive(true);
+            target.transform.SetParent(skullParent.transform);
 
             currentState = SliceState.Original;
             Debug.Log("Revert completed");
         }
     }
-
-    //public void UndoSlice()
-    //{   
-    //    foreach (var part in slicedParts)
-    //    {
-    //        Destroy(part);
-    //    }
-
-    //    slicedParts.Clear();
-
-    //    UndoManager.Instance.Undo(target);
-    //    Debug.Log("Undo");
-    //}
 
     public void SetupSlicedComponent(GameObject slicedObject)
     {
