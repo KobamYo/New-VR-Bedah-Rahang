@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Oculus.Interaction;
 
 public class SliceController : MonoBehaviour
 {
@@ -51,5 +52,10 @@ public class SliceController : MonoBehaviour
                 planeSliceScript.RevertSlice();
             }
         }
+    }
+
+    public void SlicePose()
+    {
+        planeSliceScript.Slice(planeSliceScript.target);
     }
 }
