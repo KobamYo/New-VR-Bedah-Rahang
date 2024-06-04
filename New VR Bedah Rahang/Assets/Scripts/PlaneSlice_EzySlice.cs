@@ -13,7 +13,6 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
     private GameObject skullParent;
     private List<GameObject> slicedParts = new List<GameObject>();
-    // private GameObject originalTargetState;
     private SliceState currentState = SliceState.Original;
 
     void Start()
@@ -78,6 +77,11 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             slicedParts.Clear();
 
             target.SetActive(true);
+
+            // Synchronize transform properties with the parent (skullParent)
+            target.transform.position = skullParent.transform.position;
+            target.transform.rotation = skullParent.transform.rotation;
+            target.transform.localScale = skullParent.transform.localScale;
             target.transform.SetParent(skullParent.transform);
 
             currentState = SliceState.Original;
