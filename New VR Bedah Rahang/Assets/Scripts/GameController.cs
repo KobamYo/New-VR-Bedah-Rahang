@@ -6,25 +6,29 @@ using Oculus.Interaction;
 
 public class GameController : MonoBehaviour
 {
-    public GameObject pointer;
+    public GameObject leftHandPointer;
+    public GameObject rightHandPointer;
 
     private PlaneSlice_EzySlice planeSliceScript;
     private bool isPlaneSpawned = false;
-    private GameObject originalTargetState;
-    private SliceState currentState = SliceState.Original;
 
     void Start()
     {
-        pointer.SetActive(false);
+        if (leftHandPointer != null)
+        {
+            leftHandPointer.SetActive(false);
+        }
 
-        originalTargetState = Instantiate(planeSliceScript.target);
+        if (rightHandPointer != null)
+        {
+            rightHandPointer.SetActive(false);
+        }
     }
 
     void Update()
     {
         if (!isPlaneSpawned)
         {
-            // Try to find the PlaneSlice_EzySlice component in the scene
             planeSliceScript = FindObjectOfType<PlaneSlice_EzySlice>();
 
             if (planeSliceScript != null)
@@ -49,7 +53,6 @@ public class GameController : MonoBehaviour
                 planeSliceScript.Slice(planeSliceScript.target);
             }
 
-            // Check for the key press to revert the slice
             if (Keyboard.current.zKey.wasPressedThisFrame)
             {
                 Debug.Log("Z key pressed");
@@ -68,11 +71,19 @@ public class GameController : MonoBehaviour
         planeSliceScript.RevertSlice();
     }
 
-    public void ActivatePointer()
+    public void ToggleRightPointer()
     {
-        if (pointer == null) { pointer.SetActive(true); }
+        if (rightHandPointer != null)
+        {
+            rightHandPointer.SetActive(!rightHandPointer.activeSelf);
+        }
+    }
 
-        else { pointer.SetActive(false); }
-        
+    public void ToggleLeftPointer()
+    {
+        if (leftHandPointer != null)
+        {
+            leftHandPointer.SetActive(!leftHandPointer.activeSelf);
+        }
     }
 }

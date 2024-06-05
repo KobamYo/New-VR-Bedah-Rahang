@@ -21,7 +21,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &419737709206606545
 Transform:
   m_ObjectHideFlags: 0
@@ -160,5 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfdec1891219964db872d13a1834057, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mandible: {fileID: 919132149155446097, guid: cf41b1814cd0fe243a64c7d3ab97119e, type: 3}
+  target: {fileID: 0}
   planePrefab: {fileID: 7695875845161576432, guid: 4832648936a369d418d29c8a68028bb9, type: 3}
+  planeObject1: {fileID: 0}
+  planeObject2: {fileID: 0}
