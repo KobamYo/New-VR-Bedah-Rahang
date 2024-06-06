@@ -55,7 +55,6 @@ public class SpawnPlane : MonoBehaviour
             Destroy(endPoint);
             lineDrawn = false;
         }
-        
     }
 
     private void DrawLineBetweenPoints(Vector3 start, Vector3 end)

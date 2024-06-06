@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using EzySlice;
-using UnityEngine.InputSystem;
 
 public class PlaneSlice_EzySlice : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class PlaneSlice_EzySlice : MonoBehaviour
     public GameObject target;
     public Material crossSectionMaterial;
 
-    private GameObject skullParent;
+    private GameObject skullParent; 
     private List<GameObject> slicedParts = new List<GameObject>();
     private SliceState currentState = SliceState.Original;
 
