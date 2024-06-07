@@ -575,6 +575,7 @@
 "Assets/Scripts/PointerCollisionDebug.cs"
 "Assets/Scripts/PoseController.cs"
 "Assets/Scripts/PoseController_V2.cs"
+"Assets/Scripts/Ruler.cs"
 "Assets/Scripts/SliceState.cs"
 "Assets/Scripts/SpawnOnCollision.cs"
 "Assets/Scripts/SpawnOnCollision_ver2.cs"
