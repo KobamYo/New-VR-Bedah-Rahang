@@ -5,6 +5,7 @@ using UnityEngine;
 public class SpawnPlane_V3 : MonoBehaviour
 {
     public GameObject target;
+    public GameObject fingerPlane;
     public GameObject planePrefab;
     public GameObject planeObject1;
     public GameObject planeObject2;
@@ -21,10 +22,12 @@ public class SpawnPlane_V3 : MonoBehaviour
     {
         if (hasCollided && Input.GetKeyDown(KeyCode.Space))
         {
-            // Call the method to instantiate the new plane
-            SpawnTransparentPlane();
-            // Optionally, reset the flag if you want to allow only one plane spawn per collision
-            hasCollided = false;
+            // Save the transform properties of the finger's plane
+            planePosition = fingerPlane.transform.position;
+            planeRotation = fingerPlane.transform.rotation;
+            planeScale = fingerPlane.transform.localScale;
+
+            SpawnPlane();
         }
     }
 
@@ -32,8 +35,11 @@ public class SpawnPlane_V3 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Mandible"))
         {
-            Debug.Log("Plane Entered Collision with Mandible");
-            hasCollided = true;
+            if (collision.contacts[0].thisCollider.gameObject == fingerPlane)
+            {
+                Debug.Log("Finger Plane Entered Collision with Mandible");
+                hasCollided = true;
+            }
         }
     }
 
@@ -41,12 +47,10 @@ public class SpawnPlane_V3 : MonoBehaviour
     {
         if (hasCollided && collision.gameObject.CompareTag("Mandible"))
         {
-            Debug.Log("Plane Staying in Collision with Mandible");
-
-            // Save the transform properties of the finger's plane
-            planePosition = this.transform.position;
-            planeRotation = this.transform.rotation;
-            planeScale = this.transform.localScale;
+            if (collision.contacts[0].thisCollider.gameObject == fingerPlane)
+            {
+                Debug.Log("Finger Plane Staying in Collision with Mandible");
+            }
         }
     }
 
@@ -54,12 +58,15 @@ public class SpawnPlane_V3 : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Mandible"))
         {
-            Debug.Log("Plane Exited Collision with Mandible");
-            hasCollided = false;
+            if (collision.contacts[0].thisCollider.gameObject == fingerPlane)
+            {
+                Debug.Log("Finger Plane Exited Collision with Mandible");
+                hasCollided = false;
+            }
         }
     }
 
-    public void SpawnTransparentPlane()
+    public void SpawnPlane()
     {
         if (planeObject1 == null)
         {

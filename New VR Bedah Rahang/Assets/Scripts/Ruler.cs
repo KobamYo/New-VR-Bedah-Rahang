@@ -27,6 +27,6 @@ public class Ruler : MonoBehaviour
         distanceText.transform.position = midPoint;
 
         // Optionally, make the text face the camera
-        // distanceText.transform.rotation = Quaternion.LookRotation(distanceText.transform.position - Camera.main.transform.position);
+        distanceText.transform.rotation = Quaternion.LookRotation(distanceText.transform.position - Camera.main.transform.position);
     }
 }
