@@ -1689,8 +1689,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 441310083}
   planePrefab: {fileID: 7695875845161576432, guid: fd096f26b8c5b0f40a7206a329ad21f6, type: 3}
-  planeObject1: {fileID: 0}
-  planeObject2: {fileID: 0}
 --- !u!1 &437736150
 GameObject:
   m_ObjectHideFlags: 0
@@ -5680,7 +5678,7 @@ Transform:
   m_GameObject: {fileID: 2103397919}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -1, z: -0, w: 0}
-  m_LocalPosition: {x: 0, y: -0.21428567, z: 0.28571424}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0.3}
   m_LocalScale: {x: 1.4285713, y: 1.4285713, z: 1.4285713}
   m_ConstrainProportionsScale: 0
   m_Children:

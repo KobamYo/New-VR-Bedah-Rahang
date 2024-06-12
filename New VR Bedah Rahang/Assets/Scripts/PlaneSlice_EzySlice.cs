@@ -12,7 +12,8 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
     private GameObject skullParent; 
     private List<GameObject> slicedParts = new List<GameObject>();
-    private SliceState currentState = SliceState.Original;
+    
+    [HideInInspector] public SliceState currentState = SliceState.Original;
 
     void Start()
     {
@@ -21,8 +22,6 @@ public class PlaneSlice_EzySlice : MonoBehaviour
 
     public void Slice(GameObject target)
     {
-        Debug.Log("Slicing started");
-
         target.transform.parent = null; // Detach target from parent
 
         // Perform the first slice
@@ -33,7 +32,6 @@ public class PlaneSlice_EzySlice : MonoBehaviour
         {
             GameObject upperHull = firstSlice.CreateUpperHull(target, crossSectionMaterial);
             GameObject lowerHull = firstSlice.CreateLowerHull(target, crossSectionMaterial);
-
             upperHull.transform.SetParent(skullParent.transform);
 
             // Perform the second slice
@@ -45,7 +43,6 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             {
                 GameObject secondUpperHull = secondSlice.CreateUpperHull(target, crossSectionMaterial);
                 GameObject middleHull = secondSlice.CreateLowerHull(target, crossSectionMaterial);
-                
                 secondUpperHull.transform.SetParent(skullParent.transform);
 
                 // Store the sliced parts in the list
@@ -60,13 +57,11 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             // Destroy(target); // Use this to destroy the target
             // But apparently when I destroy the target, GameObject "Skull" can't be moved.
             currentState = SliceState.Sliced;
-            Debug.Log("Slicing completed");
         }
     }
 
     public void RevertSlice()
     {
-        Debug.Log("Reverting slice");
         if (currentState == SliceState.Sliced)
         {
             foreach (GameObject part in slicedParts)
@@ -84,7 +79,6 @@ public class PlaneSlice_EzySlice : MonoBehaviour
             target.transform.SetParent(skullParent.transform);
 
             currentState = SliceState.Original;
-            Debug.Log("Revert completed");
         }
     }
 

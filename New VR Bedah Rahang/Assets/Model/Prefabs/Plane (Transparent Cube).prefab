@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 6723826109926771855}
   - component: {fileID: 2136307655951535314}
   - component: {fileID: 3476115358027255036}
+  - component: {fileID: 4929083006645676162}
   m_Layer: 0
   m_Name: Plane (Transparent Cube)
-  m_TagString: Untagged
+  m_TagString: Finger Plane
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -133,3 +134,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4929083006645676162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952370505190457322}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2929e9e79c2c5464f99541bbb2aa956c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 0}
+  planePrefab: {fileID: 7695875845161576432, guid: fd096f26b8c5b0f40a7206a329ad21f6, type: 3}

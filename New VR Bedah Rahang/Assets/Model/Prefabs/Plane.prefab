@@ -320,3 +320,4 @@ MonoBehaviour:
   secondPlane: {fileID: 0}
   target: {fileID: 0}
   crossSectionMaterial: {fileID: 2100000, guid: 4ae8f0b860a1a5d4fac3bfa0024dea70, type: 2}
+  currentState: 0

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Oculus.Interaction;
 
 public class PoseController_V2 : MonoBehaviour
 {
@@ -39,21 +38,8 @@ public class PoseController_V2 : MonoBehaviour
             }
         }
 
-        if (isPlaneSpawned)
+        if (planeSliceScript.currentState == SliceState.Sliced)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                Debug.Log("Space key pressed");
-                if (planeSliceScript.firstPlane == null || planeSliceScript.secondPlane == null)
-                {
-                    Debug.LogWarning("Planes not assigned");
-                    return;
-                }
-
-                Debug.Log("Calling Slice method");
-                planeSliceScript.Slice(planeSliceScript.target);
-            }
-
             if (Keyboard.current.zKey.wasPressedThisFrame)
             {
                 Debug.Log("Z key pressed");
@@ -62,9 +48,21 @@ public class PoseController_V2 : MonoBehaviour
         }
     }
 
+    public void SlicePose()
+    {
+        planeSliceScript.Slice(planeSliceScript.target);
+    }
+
     public void UndoPose()
     {
-        planeSliceScript.RevertSlice();
+        if (planeSliceScript.currentState == SliceState.Sliced)
+        {
+            planeSliceScript.RevertSlice();
+        }
+        else if (isPlaneSpawned)
+        {
+            spawnPlaneScript.UndoSpawnPlane();
+        }
     }
 
     public void ToggleRightPlane()
@@ -86,10 +84,5 @@ public class PoseController_V2 : MonoBehaviour
     public void InstantiatePlane()
     {
         spawnPlaneScript.SpawnPlane();
-    }
-
-    public void SlicePose()
-    {
-        planeSliceScript.Slice(planeSliceScript.target);
     }
 }
