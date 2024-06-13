@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class SpawnPlane_V2 : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject target;
+    public GameObject target;
+    public GameObject planePrefab;
+
+    [HideInInspector]
+    public GameObject planeObject1;
+
+    [HideInInspector]
+    public GameObject planeObject2;
 
     private PlaneSlice_EzySlice planeSlice1;
     private PlaneSlice_EzySlice planeSlice2;
-
-    public GameObject planePrefab;
-    public GameObject planeObject1;
-    public GameObject planeObject2;
 
     private List<GameObject> spawnedPoints = new List<GameObject>();
 
@@ -60,6 +62,22 @@ public class SpawnPlane_V2 : MonoBehaviour
             planeSlice2.secondPlane = planeTransform2;
             planeSlice2.firstPlane = planeSlice1.transform;
             planeSlice2.target = target;
+        }
+    }
+
+    public void UndoSpawnPlane()
+    {
+        if (planeObject2 != null)
+        {
+            Destroy(planeObject2);
+            planeObject2 = null;
+            planeSlice2 = null;
+        }
+        else if (planeObject1 != null)
+        {
+            Destroy(planeObject1);
+            planeObject1 = null;
+            planeSlice1 = null;
         }
     }
 }

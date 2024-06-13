@@ -9,6 +9,8 @@ public class PoseController : MonoBehaviour
     public GameObject rightHandPointer;
 
     private PlaneSlice_EzySlice planeSliceScript;
+    private SpawnPlane spawnPlaneScript;
+
     private bool isPlaneSpawned = false;
 
     void Start()
@@ -29,29 +31,16 @@ public class PoseController : MonoBehaviour
         if (!isPlaneSpawned)
         {
             planeSliceScript = FindObjectOfType<PlaneSlice_EzySlice>();
+            spawnPlaneScript = FindObjectOfType<SpawnPlane>();
 
-            if (planeSliceScript != null)
+            if (planeSliceScript != null && spawnPlaneScript != null)
             {
                 isPlaneSpawned = true;
-                Debug.Log("PlaneSlice_EzySlice script found in the scene.");
             }
         }
 
         if (isPlaneSpawned)
         {
-            if (Keyboard.current.spaceKey.wasPressedThisFrame)
-            {
-                Debug.Log("Space key pressed");
-                if (planeSliceScript.firstPlane == null || planeSliceScript.secondPlane == null)
-                {
-                    Debug.LogWarning("Planes not assigned");
-                    return;
-                }
-
-                Debug.Log("Calling Slice method");
-                planeSliceScript.Slice(planeSliceScript.target);
-            }
-
             if (Keyboard.current.zKey.wasPressedThisFrame)
             {
                 Debug.Log("Z key pressed");
@@ -62,12 +51,30 @@ public class PoseController : MonoBehaviour
 
     public void SlicePose()
     {
-        planeSliceScript.Slice(planeSliceScript.target);
+        if (planeSliceScript.currentState == SliceState.Original)
+        {
+            planeSliceScript.Slice(planeSliceScript.target);
+        }
     }
 
-    public void UndoPose()
+    public void UndoPlanePose()
     {
-        planeSliceScript.RevertSlice();
+        if (spawnPlaneScript.planeObject2 != null)
+        {
+            spawnPlaneScript.UndoSpawnPlane();
+        }
+        else if (spawnPlaneScript.planeObject1 != null)
+        {
+            spawnPlaneScript.UndoSpawnPlane();
+        }
+    }
+
+    public void UndoSlicePose()
+    {
+        if (planeSliceScript.currentState == SliceState.Sliced)
+        {
+            planeSliceScript.RevertSlice();
+        }
     }
 
     public void ToggleRightPointer()

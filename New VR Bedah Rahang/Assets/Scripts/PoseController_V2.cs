@@ -5,23 +5,24 @@ using UnityEngine.InputSystem;
 
 public class PoseController_V2 : MonoBehaviour
 {
-    public GameObject leftHandPlane;
-    public GameObject rightHandPlane;
+    public GameObject leftHandPointer;
+    public GameObject rightHandPointer;
 
     private PlaneSlice_EzySlice planeSliceScript;
-    private SpawnPlane_V3 spawnPlaneScript;
+    private SpawnPlane_V2 spawnPlaneScript;
+
     private bool isPlaneSpawned = false;
 
     void Start()
     {
-        if (leftHandPlane != null)
+        if (leftHandPointer != null)
         {
-            leftHandPlane.SetActive(false);
+            leftHandPointer.SetActive(false);
         }
 
-        if (rightHandPlane != null)
+        if (rightHandPointer != null)
         {
-            rightHandPlane.SetActive(false);
+            rightHandPointer.SetActive(false);
         }
     }
 
@@ -30,15 +31,15 @@ public class PoseController_V2 : MonoBehaviour
         if (!isPlaneSpawned)
         {
             planeSliceScript = FindObjectOfType<PlaneSlice_EzySlice>();
+            spawnPlaneScript = FindObjectOfType<SpawnPlane_V2>();
 
-            if (planeSliceScript != null)
+            if (planeSliceScript != null && spawnPlaneScript != null)
             {
                 isPlaneSpawned = true;
-                Debug.Log("PlaneSlice_EzySlice script found in the scene.");
             }
         }
 
-        if (planeSliceScript.currentState == SliceState.Sliced)
+        if (isPlaneSpawned)
         {
             if (Keyboard.current.zKey.wasPressedThisFrame)
             {
@@ -50,39 +51,45 @@ public class PoseController_V2 : MonoBehaviour
 
     public void SlicePose()
     {
-        planeSliceScript.Slice(planeSliceScript.target);
+        if (planeSliceScript.currentState == SliceState.Original)
+        {
+            planeSliceScript.Slice(planeSliceScript.target);
+        }
     }
 
-    public void UndoPose()
+    public void UndoPlanePose()
     {
-        if (planeSliceScript.currentState == SliceState.Sliced)
+        if (spawnPlaneScript.planeObject2 != null)
         {
-            planeSliceScript.RevertSlice();
+            spawnPlaneScript.UndoSpawnPlane();
         }
-        else if (isPlaneSpawned)
+        else if (spawnPlaneScript.planeObject1 != null)
         {
             spawnPlaneScript.UndoSpawnPlane();
         }
     }
 
-    public void ToggleRightPlane()
+    public void UndoSlicePose()
     {
-        if (rightHandPlane != null)
+        if (planeSliceScript.currentState == SliceState.Sliced)
         {
-            rightHandPlane.SetActive(!rightHandPlane.activeSelf);
+            planeSliceScript.RevertSlice();
         }
     }
 
-    public void ToggleLeftPlane()
+    public void ToggleRightPointer()
     {
-        if (leftHandPlane != null)
+        if (rightHandPointer != null)
         {
-            leftHandPlane.SetActive(!leftHandPlane.activeSelf);
+            rightHandPointer.SetActive(!rightHandPointer.activeSelf);
         }
     }
 
-    public void InstantiatePlane()
+    public void ToggleLeftPointer()
     {
-        spawnPlaneScript.SpawnPlane();
+        if (leftHandPointer != null)
+        {
+            leftHandPointer.SetActive(!leftHandPointer.activeSelf);
+        }
     }
 }

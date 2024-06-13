@@ -7,8 +7,12 @@ public class SpawnPlane_V3 : MonoBehaviour
     public GameObject target;
     public GameObject planePrefab;
 
-    private GameObject planeObject1;
-    private GameObject planeObject2;
+    [HideInInspector]
+    public GameObject planeObject1;
+
+    [HideInInspector]
+    public GameObject planeObject2;
+
     private PlaneSlice_EzySlice slicingPlane1;
     private PlaneSlice_EzySlice slicingPlane2;
 
@@ -30,18 +34,6 @@ public class SpawnPlane_V3 : MonoBehaviour
             hasCollided = false;
             Debug.Log("Exit");
         }
-    }
-
-    private void Update()
-    {
-        if (hasCollided && Input.GetKeyDown(KeyCode.Space))
-        {
-            SpawnPlane();
-        }
-        //if ((planeObject2 != null || planeObject1 != null) && Input.GetKeyDown(KeyCode.Z))
-        //{
-        //    UndoSpawnPlane();
-        //}
     }
 
     public void SpawnPlane()
@@ -86,15 +78,5 @@ public class SpawnPlane_V3 : MonoBehaviour
             slicingPlane1 = null;
             Debug.Log("First Plane destroyed.");
         }
-    }
-
-    public bool IsFirstPlaneSpawned()
-    {
-        return planeObject1 != null;
-    }
-
-    public bool IsSecondPlaneSpawned()
-    {
-        return planeObject2 != null;
     }
 }
