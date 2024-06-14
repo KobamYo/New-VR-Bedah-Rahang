@@ -587,6 +587,7 @@
 "Assets/Scripts/SpawnPlane_V3.cs"
 "Assets/Scripts/SpawnPoint.cs"
 "Assets/Scripts/SpawnPoint_V2.cs"
+"Assets/Scripts/VideoManager.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
