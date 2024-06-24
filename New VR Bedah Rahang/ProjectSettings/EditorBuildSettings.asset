@@ -12,9 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Interaction 2 (Single Point).unity
     guid: f2efecfa13ebc3a4dbc2ebf8a31a1464
   - enabled: 1
-    path: Assets/Scenes/Interaction 4 (Normal Slice).unity
-    guid: 693fe192efa6c7348941fa79c83b72aa
-  - enabled: 1
     path: Assets/Scenes/Interaction 3 (Transparent Plane).unity
     guid: c23161f8982e55746adde9c3a5d0fb2e
   m_configObjects:

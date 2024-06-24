@@ -1,10 +1,18 @@
 ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
+    - ChangeScenes
     - PlaneSlice_EzySlice
+    - PoseController
     - PoseController_V2
+    - PoseController_V3
     - Ruler
+    - SpawnPlane
+    - SpawnPlane_V2
     - SpawnPlane_V3
+    - SpawnPoint
+    - SpawnPoint_V2
+    - VideoManager
     Oculus.Interaction.OVR.Samples.dll:
     - Oculus.Interaction.AudioTrigger
     Oculus.Interaction.OVR.dll:
@@ -43,9 +51,13 @@ ScriptsOnlyBuild:
     - Oculus.Interaction.Input.JointsRadiusFeature
     - Oculus.Interaction.Input.LastKnownGoodHand
     - Oculus.Interaction.Input.SyntheticHand
+    - Oculus.Interaction.InteractableColorVisual
     - Oculus.Interaction.MaterialPropertyBlockEditor
     - Oculus.Interaction.OneGrabFreeTransformer
     - Oculus.Interaction.OneGrabRotateTransformer
+    - Oculus.Interaction.PointableUnityEventWrapper
+    - Oculus.Interaction.PokeInteractable
+    - Oculus.Interaction.PokeInteractableVisual
     - Oculus.Interaction.PokeInteractor
     - Oculus.Interaction.PoseDetection.FingerFeatureStateProvider
     - Oculus.Interaction.PoseDetection.FingerFeatureStateThresholds
@@ -54,7 +66,11 @@ ScriptsOnlyBuild:
     - Oculus.Interaction.PoseDetection.TransformFeatureStateProvider
     - Oculus.Interaction.PoseDetection.TransformFeatureStateThresholds
     - Oculus.Interaction.PoseDetection.TransformRecognizerActiveState
+    - Oculus.Interaction.RoundedBoxProperties
     - Oculus.Interaction.SelectorUnityEventWrapper
+    - Oculus.Interaction.Surfaces.BoundsClipper
+    - Oculus.Interaction.Surfaces.ClippedPlaneSurface
+    - Oculus.Interaction.Surfaces.PlaneSurface
     - Oculus.Interaction.TwoGrabFreeTransformer
     Oculus.Spatializer:
     - ONSPSettings
@@ -62,6 +78,7 @@ ScriptsOnlyBuild:
     - OVRRuntimeSettings
     Oculus.VR.Editor:
     - Assets.Oculus.VR.Editor.OVRPlatformToolSettings
+    - OVRConfig
     Oculus.VR.Editor.dll:
     - Assets.Oculus.VR.Editor.OVRPlatformToolSettings
     - OVRProjectConfig
@@ -77,6 +94,8 @@ ScriptsOnlyBuild:
     - UnityEngine.InputSystem.InputSettings
     - UnityEngine.InputSystem.InputSystemObject
     - UnityEngine.InputSystem.RemoteInputPlayerConnection
+    Unity.PlasticSCM.Editor.dll:
+    - Unity.PlasticSCM.Editor.PlasticWindow
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro:
@@ -90,6 +109,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Settings
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
+    - TMPro.TextMeshPro
     - TMPro.TextMeshProUGUI
     Unity.XR.Management.Editor.dll:
     - UnityEditor.XR.Management.XRGeneralSettingsPerBuildTarget
@@ -104,15 +124,23 @@ ScriptsOnlyBuild:
     - UnityEditor.TestTools.TestRunner.TestListCacheData
     - UnityEditor.TestTools.TestRunner.TestRun.TestJobDataHolder
     UnityEngine.UI.dll:
+    - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.Image
+    - UnityEngine.UI.RawImage
   serializedClasses:
     Oculus.Interaction:
     - Oculus.Interaction.FloatConstraint
     - Oculus.Interaction.Grab.PoseMeasureParameters
     - Oculus.Interaction.GrabAPI.GrabbingRule
+    - Oculus.Interaction.InteractableColorVisual/ColorState
     - Oculus.Interaction.MaterialPropertyVector
     - Oculus.Interaction.OneGrabRotateTransformer/OneGrabRotateConstraints
+    - Oculus.Interaction.PokeInteractable/DragThresholdsConfig
+    - Oculus.Interaction.PokeInteractable/MinThresholdsConfig
+    - Oculus.Interaction.PokeInteractable/PositionPinningConfig
+    - Oculus.Interaction.PokeInteractable/RecoilAssistConfig
     - Oculus.Interaction.PoseDetection.FingerFeatureStateProvider/FingerStateThresholds
     - Oculus.Interaction.PoseDetection.FingerFeatureStateThreshold
     - Oculus.Interaction.PoseDetection.FingerFeatureThresholds
@@ -136,6 +164,7 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Character
     - TMPro.TMP_FontFeatureTable
     - TMPro.TMP_FontWeightPair
+    - TMPro.TMP_Glyph
     - TMPro.TMP_GlyphAdjustmentRecord
     - TMPro.TMP_GlyphPairAdjustmentRecord
     - TMPro.TMP_GlyphValueRecord
@@ -149,19 +178,244 @@ ScriptsOnlyBuild:
     - UnityEngine.Events.PersistentCallGroup
     - UnityEngine.Events.PersistentListenerMode
     - UnityEngine.Events.UnityEvent
+    - UnityEngine.Events.UnityEvent`1[Oculus.Interaction.PointerEvent]
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
     - UnityEngine.TextCore.GlyphMetrics
     - UnityEngine.TextCore.GlyphRect
     UnityEngine.UI:
+    - UnityEngine.UI.AnimationTriggers
+    - UnityEngine.UI.Button/ButtonClickedEvent
+    - UnityEngine.UI.ColorBlock
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
+    - UnityEngine.UI.Navigation
+    - UnityEngine.UI.SpriteState
   methodsToPreserve:
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: ToggleRightPointer
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: ToggleLeftPointer
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: VideoManager
+    methodName: NextVideo
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: UndoPlanePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene2
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: SpawnPlane
+    methodName: UndoSpawnPlane
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene3
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: UndoSlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene1
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: VideoManager
+    methodName: PreviousVideo
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: UndoSlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: SlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController
+    methodName: SlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene1
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: ToggleRightPointer
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene3
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: ToggleLeftPointer
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
   - assembly: Oculus.Interaction.OVR.Samples
     fullTypeName: Oculus.Interaction.AudioTrigger
     methodName: PlayAudio
   - assembly: Assembly-CSharp
     fullTypeName: PoseController_V2
+    methodName: UndoPlanePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: VideoManager
+    methodName: PreviousVideo
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: VideoManager
+    methodName: NextVideo
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene2
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: UndoPlanePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: UndoSlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: UndoSlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: SlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V2
+    methodName: SlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene3
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene2
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: VideoManager
+    methodName: NextVideo
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: ChangeScenes
+    methodName: Scene1
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
     methodName: ToggleRightPlane
   - assembly: Oculus.Interaction.OVR.Samples
     fullTypeName: Oculus.Interaction.AudioTrigger
@@ -170,25 +424,67 @@ ScriptsOnlyBuild:
     fullTypeName: Oculus.Interaction.AudioTrigger
     methodName: PlayAudio
   - assembly: Assembly-CSharp
-    fullTypeName: PoseController_V2
-    methodName: UndoPose
+    fullTypeName: PoseController_V3
+    methodName: UndoSlicePose
   - assembly: Oculus.Interaction.OVR.Samples
     fullTypeName: Oculus.Interaction.AudioTrigger
     methodName: PlayAudio
   - assembly: Assembly-CSharp
-    fullTypeName: PoseController_V2
-    methodName: UndoPose
+    fullTypeName: PoseController_V3
+    methodName: UndoSlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
   - assembly: Oculus.Interaction.OVR.Samples
     fullTypeName: Oculus.Interaction.AudioTrigger
     methodName: PlayAudio
   - assembly: Assembly-CSharp
-    fullTypeName: PoseController_V2
+    fullTypeName: VideoManager
+    methodName: PreviousVideo
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
+    methodName: InstantiatePlane
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
+    methodName: UndoPlanePose
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
     methodName: ToggleLeftPlane
   - assembly: Oculus.Interaction.OVR.Samples
     fullTypeName: Oculus.Interaction.AudioTrigger
     methodName: PlayAudio
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
+    methodName: InstantiatePlane
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
+    methodName: SlicePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
+    methodName: UndoPlanePose
+  - assembly: Oculus.Interaction.OVR.Samples
+    fullTypeName: Oculus.Interaction.AudioTrigger
+    methodName: PlayAudio
+  - assembly: Assembly-CSharp
+    fullTypeName: PoseController_V3
+    methodName: SlicePose
   sceneClasses:
-    Assets/Scenes/Interaction 4 Transparent Plane 2.unity:
+    Assets/Scenes/Interaction 1 (Two Points).unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -213,8 +509,6 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 64
       Script: {instanceID: 0}
-    - Class: 65
-      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -222,6 +516,8 @@ ScriptsOnlyBuild:
     - Class: 82
       Script: {instanceID: 0}
     - Class: 83
+      Script: {instanceID: 0}
+    - Class: 84
       Script: {instanceID: 0}
     - Class: 90
       Script: {instanceID: 0}
@@ -234,143 +530,175 @@ ScriptsOnlyBuild:
     - Class: 108
       Script: {instanceID: 0}
     - Class: 114
-      Script: {instanceID: 16840}
+      Script: {instanceID: 16842}
     - Class: 114
-      Script: {instanceID: 17018}
+      Script: {instanceID: 16846}
     - Class: 114
-      Script: {instanceID: 17132}
+      Script: {instanceID: 16850}
     - Class: 114
-      Script: {instanceID: 17400}
+      Script: {instanceID: 17020}
     - Class: 114
-      Script: {instanceID: 17402}
+      Script: {instanceID: 17134}
     - Class: 114
-      Script: {instanceID: 17512}
+      Script: {instanceID: 17404}
     - Class: 114
-      Script: {instanceID: 17524}
+      Script: {instanceID: 17514}
     - Class: 114
-      Script: {instanceID: 17672}
+      Script: {instanceID: 17526}
     - Class: 114
-      Script: {instanceID: 17744}
+      Script: {instanceID: 17674}
     - Class: 114
-      Script: {instanceID: 17860}
+      Script: {instanceID: 17746}
     - Class: 114
-      Script: {instanceID: 17870}
+      Script: {instanceID: 17862}
     - Class: 114
-      Script: {instanceID: 17874}
+      Script: {instanceID: 17872}
     - Class: 114
-      Script: {instanceID: 17968}
+      Script: {instanceID: 17876}
     - Class: 114
-      Script: {instanceID: 17996}
+      Script: {instanceID: 17970}
     - Class: 114
-      Script: {instanceID: 18404}
+      Script: {instanceID: 17998}
     - Class: 114
-      Script: {instanceID: 18846}
+      Script: {instanceID: 18406}
+    - Class: 114
+      Script: {instanceID: 18850}
     - Class: 114
       Script: {instanceID: 18884}
     - Class: 114
-      Script: {instanceID: 19236}
+      Script: {instanceID: 18888}
     - Class: 114
-      Script: {instanceID: 19346}
+      Script: {instanceID: 19190}
     - Class: 114
-      Script: {instanceID: 19382}
+      Script: {instanceID: 19240}
     - Class: 114
-      Script: {instanceID: 19580}
+      Script: {instanceID: 19350}
     - Class: 114
-      Script: {instanceID: 19888}
+      Script: {instanceID: 19400}
     - Class: 114
-      Script: {instanceID: 20172}
+      Script: {instanceID: 19584}
     - Class: 114
-      Script: {instanceID: 20266}
+      Script: {instanceID: 19714}
     - Class: 114
-      Script: {instanceID: 20382}
+      Script: {instanceID: 19894}
     - Class: 114
-      Script: {instanceID: 20676}
+      Script: {instanceID: 20154}
     - Class: 114
-      Script: {instanceID: 20970}
+      Script: {instanceID: 20178}
     - Class: 114
-      Script: {instanceID: 21018}
+      Script: {instanceID: 20272}
     - Class: 114
-      Script: {instanceID: 21076}
+      Script: {instanceID: 20388}
     - Class: 114
-      Script: {instanceID: 21092}
+      Script: {instanceID: 20454}
     - Class: 114
-      Script: {instanceID: 21150}
+      Script: {instanceID: 20498}
     - Class: 114
-      Script: {instanceID: 21322}
+      Script: {instanceID: 20616}
     - Class: 114
-      Script: {instanceID: 21584}
+      Script: {instanceID: 20682}
     - Class: 114
-      Script: {instanceID: 21648}
+      Script: {instanceID: 20976}
     - Class: 114
-      Script: {instanceID: 21968}
+      Script: {instanceID: 21024}
     - Class: 114
-      Script: {instanceID: 22112}
+      Script: {instanceID: 21082}
     - Class: 114
-      Script: {instanceID: 22224}
+      Script: {instanceID: 21098}
     - Class: 114
-      Script: {instanceID: 22420}
+      Script: {instanceID: 21156}
     - Class: 114
-      Script: {instanceID: 22622}
+      Script: {instanceID: 21328}
     - Class: 114
-      Script: {instanceID: 22660}
+      Script: {instanceID: 21488}
     - Class: 114
-      Script: {instanceID: 22808}
+      Script: {instanceID: 21590}
+    - Class: 114
+      Script: {instanceID: 21654}
+    - Class: 114
+      Script: {instanceID: 21974}
+    - Class: 114
+      Script: {instanceID: 22118}
+    - Class: 114
+      Script: {instanceID: 22230}
+    - Class: 114
+      Script: {instanceID: 22426}
+    - Class: 114
+      Script: {instanceID: 22628}
+    - Class: 114
+      Script: {instanceID: 22666}
     - Class: 114
       Script: {instanceID: 22814}
     - Class: 114
-      Script: {instanceID: 22862}
+      Script: {instanceID: 22820}
     - Class: 114
-      Script: {instanceID: 22920}
+      Script: {instanceID: 22868}
     - Class: 114
-      Script: {instanceID: 23024}
+      Script: {instanceID: 22926}
     - Class: 114
-      Script: {instanceID: 23238}
+      Script: {instanceID: 23030}
     - Class: 114
-      Script: {instanceID: 23414}
+      Script: {instanceID: 23244}
     - Class: 114
-      Script: {instanceID: 23456}
+      Script: {instanceID: 23420}
     - Class: 114
-      Script: {instanceID: 24002}
+      Script: {instanceID: 23462}
     - Class: 114
-      Script: {instanceID: 24288}
+      Script: {instanceID: 23554}
     - Class: 114
-      Script: {instanceID: 24478}
+      Script: {instanceID: 23576}
     - Class: 114
-      Script: {instanceID: 24528}
+      Script: {instanceID: 24008}
     - Class: 114
-      Script: {instanceID: 24666}
+      Script: {instanceID: 24182}
     - Class: 114
-      Script: {instanceID: 24950}
+      Script: {instanceID: 24296}
     - Class: 114
-      Script: {instanceID: 25488}
+      Script: {instanceID: 24464}
     - Class: 114
-      Script: {instanceID: 25664}
+      Script: {instanceID: 24486}
     - Class: 114
-      Script: {instanceID: 25690}
+      Script: {instanceID: 24536}
     - Class: 114
-      Script: {instanceID: 26026}
+      Script: {instanceID: 24674}
     - Class: 114
-      Script: {instanceID: 26230}
+      Script: {instanceID: 24958}
     - Class: 114
-      Script: {instanceID: 26304}
+      Script: {instanceID: 25496}
     - Class: 114
-      Script: {instanceID: 26484}
+      Script: {instanceID: 25672}
     - Class: 114
-      Script: {instanceID: 27190}
+      Script: {instanceID: 25698}
     - Class: 114
-      Script: {instanceID: 27246}
+      Script: {instanceID: 26034}
     - Class: 114
-      Script: {instanceID: 27260}
+      Script: {instanceID: 26238}
     - Class: 114
-      Script: {instanceID: 27330}
+      Script: {instanceID: 26312}
     - Class: 114
-      Script: {instanceID: 27418}
+      Script: {instanceID: 26492}
     - Class: 114
-      Script: {instanceID: 27472}
+      Script: {instanceID: 27084}
     - Class: 114
-      Script: {instanceID: 27482}
+      Script: {instanceID: 27198}
     - Class: 114
-      Script: {instanceID: 27592}
+      Script: {instanceID: 27254}
+    - Class: 114
+      Script: {instanceID: 27268}
+    - Class: 114
+      Script: {instanceID: 27302}
+    - Class: 114
+      Script: {instanceID: 27338}
+    - Class: 114
+      Script: {instanceID: 27426}
+    - Class: 114
+      Script: {instanceID: 27480}
+    - Class: 114
+      Script: {instanceID: 27490}
+    - Class: 114
+      Script: {instanceID: 27598}
+    - Class: 114
+      Script: {instanceID: 27600}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 120
@@ -394,6 +722,456 @@ ScriptsOnlyBuild:
     - Class: 223
       Script: {instanceID: 0}
     - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
+      Script: {instanceID: 0}
+    Assets/Scenes/Interaction 2 (Single Point).unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 16842}
+    - Class: 114
+      Script: {instanceID: 16846}
+    - Class: 114
+      Script: {instanceID: 16850}
+    - Class: 114
+      Script: {instanceID: 17020}
+    - Class: 114
+      Script: {instanceID: 17134}
+    - Class: 114
+      Script: {instanceID: 17404}
+    - Class: 114
+      Script: {instanceID: 17514}
+    - Class: 114
+      Script: {instanceID: 17526}
+    - Class: 114
+      Script: {instanceID: 17674}
+    - Class: 114
+      Script: {instanceID: 17872}
+    - Class: 114
+      Script: {instanceID: 17876}
+    - Class: 114
+      Script: {instanceID: 17970}
+    - Class: 114
+      Script: {instanceID: 17998}
+    - Class: 114
+      Script: {instanceID: 18402}
+    - Class: 114
+      Script: {instanceID: 18406}
+    - Class: 114
+      Script: {instanceID: 18850}
+    - Class: 114
+      Script: {instanceID: 18884}
+    - Class: 114
+      Script: {instanceID: 18888}
+    - Class: 114
+      Script: {instanceID: 19240}
+    - Class: 114
+      Script: {instanceID: 19350}
+    - Class: 114
+      Script: {instanceID: 19584}
+    - Class: 114
+      Script: {instanceID: 19714}
+    - Class: 114
+      Script: {instanceID: 19894}
+    - Class: 114
+      Script: {instanceID: 20154}
+    - Class: 114
+      Script: {instanceID: 20178}
+    - Class: 114
+      Script: {instanceID: 20272}
+    - Class: 114
+      Script: {instanceID: 20388}
+    - Class: 114
+      Script: {instanceID: 20498}
+    - Class: 114
+      Script: {instanceID: 20616}
+    - Class: 114
+      Script: {instanceID: 20682}
+    - Class: 114
+      Script: {instanceID: 20762}
+    - Class: 114
+      Script: {instanceID: 21024}
+    - Class: 114
+      Script: {instanceID: 21082}
+    - Class: 114
+      Script: {instanceID: 21098}
+    - Class: 114
+      Script: {instanceID: 21328}
+    - Class: 114
+      Script: {instanceID: 21654}
+    - Class: 114
+      Script: {instanceID: 22118}
+    - Class: 114
+      Script: {instanceID: 22230}
+    - Class: 114
+      Script: {instanceID: 22426}
+    - Class: 114
+      Script: {instanceID: 22628}
+    - Class: 114
+      Script: {instanceID: 22666}
+    - Class: 114
+      Script: {instanceID: 22814}
+    - Class: 114
+      Script: {instanceID: 22820}
+    - Class: 114
+      Script: {instanceID: 22868}
+    - Class: 114
+      Script: {instanceID: 22926}
+    - Class: 114
+      Script: {instanceID: 23030}
+    - Class: 114
+      Script: {instanceID: 23244}
+    - Class: 114
+      Script: {instanceID: 23420}
+    - Class: 114
+      Script: {instanceID: 23462}
+    - Class: 114
+      Script: {instanceID: 23554}
+    - Class: 114
+      Script: {instanceID: 23576}
+    - Class: 114
+      Script: {instanceID: 24008}
+    - Class: 114
+      Script: {instanceID: 24182}
+    - Class: 114
+      Script: {instanceID: 24296}
+    - Class: 114
+      Script: {instanceID: 24464}
+    - Class: 114
+      Script: {instanceID: 24486}
+    - Class: 114
+      Script: {instanceID: 24536}
+    - Class: 114
+      Script: {instanceID: 24958}
+    - Class: 114
+      Script: {instanceID: 25496}
+    - Class: 114
+      Script: {instanceID: 25572}
+    - Class: 114
+      Script: {instanceID: 25672}
+    - Class: 114
+      Script: {instanceID: 25698}
+    - Class: 114
+      Script: {instanceID: 26034}
+    - Class: 114
+      Script: {instanceID: 26238}
+    - Class: 114
+      Script: {instanceID: 26312}
+    - Class: 114
+      Script: {instanceID: 26492}
+    - Class: 114
+      Script: {instanceID: 27084}
+    - Class: 114
+      Script: {instanceID: 27198}
+    - Class: 114
+      Script: {instanceID: 27254}
+    - Class: 114
+      Script: {instanceID: 27268}
+    - Class: 114
+      Script: {instanceID: 27338}
+    - Class: 114
+      Script: {instanceID: 27426}
+    - Class: 114
+      Script: {instanceID: 27480}
+    - Class: 114
+      Script: {instanceID: 27490}
+    - Class: 114
+      Script: {instanceID: 27598}
+    - Class: 114
+      Script: {instanceID: 27600}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
+      Script: {instanceID: 0}
+    Assets/Scenes/Interaction 3 (Transparent Plane).unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 23
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 33
+      Script: {instanceID: 0}
+    - Class: 43
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 54
+      Script: {instanceID: 0}
+    - Class: 64
+      Script: {instanceID: 0}
+    - Class: 65
+      Script: {instanceID: 0}
+    - Class: 74
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 82
+      Script: {instanceID: 0}
+    - Class: 83
+      Script: {instanceID: 0}
+    - Class: 84
+      Script: {instanceID: 0}
+    - Class: 90
+      Script: {instanceID: 0}
+    - Class: 91
+      Script: {instanceID: 0}
+    - Class: 95
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 108
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 16842}
+    - Class: 114
+      Script: {instanceID: 16846}
+    - Class: 114
+      Script: {instanceID: 16850}
+    - Class: 114
+      Script: {instanceID: 17020}
+    - Class: 114
+      Script: {instanceID: 17134}
+    - Class: 114
+      Script: {instanceID: 17402}
+    - Class: 114
+      Script: {instanceID: 17404}
+    - Class: 114
+      Script: {instanceID: 17514}
+    - Class: 114
+      Script: {instanceID: 17526}
+    - Class: 114
+      Script: {instanceID: 17674}
+    - Class: 114
+      Script: {instanceID: 17872}
+    - Class: 114
+      Script: {instanceID: 17876}
+    - Class: 114
+      Script: {instanceID: 17970}
+    - Class: 114
+      Script: {instanceID: 17998}
+    - Class: 114
+      Script: {instanceID: 18406}
+    - Class: 114
+      Script: {instanceID: 18850}
+    - Class: 114
+      Script: {instanceID: 18884}
+    - Class: 114
+      Script: {instanceID: 18888}
+    - Class: 114
+      Script: {instanceID: 19240}
+    - Class: 114
+      Script: {instanceID: 19350}
+    - Class: 114
+      Script: {instanceID: 19386}
+    - Class: 114
+      Script: {instanceID: 19584}
+    - Class: 114
+      Script: {instanceID: 19714}
+    - Class: 114
+      Script: {instanceID: 19894}
+    - Class: 114
+      Script: {instanceID: 20154}
+    - Class: 114
+      Script: {instanceID: 20178}
+    - Class: 114
+      Script: {instanceID: 20272}
+    - Class: 114
+      Script: {instanceID: 20388}
+    - Class: 114
+      Script: {instanceID: 20498}
+    - Class: 114
+      Script: {instanceID: 20616}
+    - Class: 114
+      Script: {instanceID: 20682}
+    - Class: 114
+      Script: {instanceID: 21024}
+    - Class: 114
+      Script: {instanceID: 21082}
+    - Class: 114
+      Script: {instanceID: 21098}
+    - Class: 114
+      Script: {instanceID: 21328}
+    - Class: 114
+      Script: {instanceID: 21654}
+    - Class: 114
+      Script: {instanceID: 22118}
+    - Class: 114
+      Script: {instanceID: 22230}
+    - Class: 114
+      Script: {instanceID: 22426}
+    - Class: 114
+      Script: {instanceID: 22628}
+    - Class: 114
+      Script: {instanceID: 22666}
+    - Class: 114
+      Script: {instanceID: 22814}
+    - Class: 114
+      Script: {instanceID: 22820}
+    - Class: 114
+      Script: {instanceID: 22868}
+    - Class: 114
+      Script: {instanceID: 22926}
+    - Class: 114
+      Script: {instanceID: 23030}
+    - Class: 114
+      Script: {instanceID: 23244}
+    - Class: 114
+      Script: {instanceID: 23420}
+    - Class: 114
+      Script: {instanceID: 23462}
+    - Class: 114
+      Script: {instanceID: 23554}
+    - Class: 114
+      Script: {instanceID: 23576}
+    - Class: 114
+      Script: {instanceID: 24008}
+    - Class: 114
+      Script: {instanceID: 24182}
+    - Class: 114
+      Script: {instanceID: 24296}
+    - Class: 114
+      Script: {instanceID: 24464}
+    - Class: 114
+      Script: {instanceID: 24486}
+    - Class: 114
+      Script: {instanceID: 24536}
+    - Class: 114
+      Script: {instanceID: 24958}
+    - Class: 114
+      Script: {instanceID: 25496}
+    - Class: 114
+      Script: {instanceID: 25672}
+    - Class: 114
+      Script: {instanceID: 25698}
+    - Class: 114
+      Script: {instanceID: 26034}
+    - Class: 114
+      Script: {instanceID: 26238}
+    - Class: 114
+      Script: {instanceID: 26312}
+    - Class: 114
+      Script: {instanceID: 26492}
+    - Class: 114
+      Script: {instanceID: 27084}
+    - Class: 114
+      Script: {instanceID: 27198}
+    - Class: 114
+      Script: {instanceID: 27254}
+    - Class: 114
+      Script: {instanceID: 27268}
+    - Class: 114
+      Script: {instanceID: 27338}
+    - Class: 114
+      Script: {instanceID: 27426}
+    - Class: 114
+      Script: {instanceID: 27480}
+    - Class: 114
+      Script: {instanceID: 27490}
+    - Class: 114
+      Script: {instanceID: 27598}
+    - Class: 114
+      Script: {instanceID: 27600}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 120
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 135
+      Script: {instanceID: 0}
+    - Class: 136
+      Script: {instanceID: 0}
+    - Class: 137
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 196
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
+    - Class: 328
+      Script: {instanceID: 0}
+    - Class: 329
       Script: {instanceID: 0}
   scriptHashData:
   - hash:
@@ -710,10 +1488,10 @@ ScriptsOnlyBuild:
     className: DictationServiceAudioEventReference
   - hash:
       serializedVersion: 2
-      Hash: d8b6cd5a861323246a133d6d68d14043
+      Hash: ad4cc3f3b6d23dbb89c352f38387e966
     assemblyName: Assembly-CSharp
     namespaceName: 
-    className: PoseController_V2
+    className: PoseController_V3
   - hash:
       serializedVersion: 2
       Hash: 817c59a816fda92a3d6aeb2f55d9b507
@@ -1034,16 +1812,22 @@ ScriptsOnlyBuild:
     className: UnityOnBecameVisibleMessageListener
   - hash:
       serializedVersion: 2
+      Hash: 58a1b6aabc0d4d594f19a30852a76a84
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PoseController_V2
+  - hash:
+      serializedVersion: 2
+      Hash: e972aec77f80766e3607277292a72517
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: PlaneSlice_EzySlice
+  - hash:
+      serializedVersion: 2
       Hash: c59e629d9a85df98178e8328cb831884
     assemblyName: Oculus.Interaction
     namespaceName: Oculus.Interaction
     className: TransformFeatureStateProviderRef
-  - hash:
-      serializedVersion: 2
-      Hash: 070bab13ee4560d936f1d3afe0d20ec4
-    assemblyName: Assembly-CSharp
-    namespaceName: 
-    className: PlaneSlice_EzySlice
   - hash:
       serializedVersion: 2
       Hash: 88a89d51fdb50a5c3e0a0edbc82f6f8f
@@ -1508,7 +2292,7 @@ ScriptsOnlyBuild:
     className: ToggleGroup
   - hash:
       serializedVersion: 2
-      Hash: fa26ab43ca809de3d790e614519dad3c
+      Hash: 5e92b8ee0f6078c5479ee0bcea713ad1
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SpawnPlane_V3
@@ -1632,6 +2416,12 @@ ScriptsOnlyBuild:
     assemblyName: Oculus.Platform
     namespaceName: 
     className: GroupPresenceSample
+  - hash:
+      serializedVersion: 2
+      Hash: fd0c6eb0b07966d13737a88e2804c8e5
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: ChangeScenes
   - hash:
       serializedVersion: 2
       Hash: 86344100c716167fb86137c127ca9eee
@@ -2564,7 +3354,7 @@ ScriptsOnlyBuild:
     className: OnScreenStick
   - hash:
       serializedVersion: 2
-      Hash: 809698600a12b1dca257bfc8a4332e62
+      Hash: f4440eb3839f2c64bc67189e053190f6
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: SpawnPlane
@@ -3798,6 +4588,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp
     namespaceName: 
     className: UiSceneMenu
+  - hash:
+      serializedVersion: 2
+      Hash: 1472b711c6b4dcd2e5717621d84ef8fd
+    assemblyName: Assembly-CSharp
+    namespaceName: 
+    className: VideoManager
   - hash:
       serializedVersion: 2
       Hash: 129448ca4edbea6d726273e2474a3e18
@@ -5450,5 +6246,7 @@ ScriptsOnlyBuild:
     className: TrackSegment
   platform: 13
   scenePathNames:
-  - Assets/Scenes/Interaction 4 Transparent Plane 2.unity
-  playerPath: D:/Foldernya Diablo/TA/Test Build.apk
+  - Assets/Scenes/Interaction 1 (Two Points).unity
+  - Assets/Scenes/Interaction 2 (Single Point).unity
+  - Assets/Scenes/Interaction 3 (Transparent Plane).unity
+  playerPath: D:/Foldernya Diablo/TA/Test Build_Quest3.apk
