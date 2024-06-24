@@ -58,11 +58,7 @@ public class PoseController_V3 : MonoBehaviour
 
     public void UndoPlanePose()
     {
-        if (spawnPlaneScript.planeObject2 != null)
-        {
-            spawnPlaneScript.UndoSpawnPlane();
-        }
-        else if (spawnPlaneScript.planeObject1 != null)
+        if (spawnPlaneScript != null && spawnPlaneScript.spawnedPlanes.Count > 0)
         {
             spawnPlaneScript.UndoSpawnPlane();
         }

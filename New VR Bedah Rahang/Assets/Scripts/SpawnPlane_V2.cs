@@ -8,13 +8,8 @@ public class SpawnPlane_V2 : MonoBehaviour
     public GameObject planePrefab;
 
     [HideInInspector]
-    public GameObject planeObject1;
-
-    [HideInInspector]
-    public GameObject planeObject2;
-
-    private PlaneSlice_EzySlice planeSlice1;
-    private PlaneSlice_EzySlice planeSlice2;
+    public List<GameObject> spawnedPlanes = new List<GameObject>();
+    private List<PlaneSlice_EzySlice> slicingPlanes = new List<PlaneSlice_EzySlice>();
 
     private List<GameObject> spawnedPoints = new List<GameObject>();
 
@@ -37,47 +32,44 @@ public class SpawnPlane_V2 : MonoBehaviour
     {
         Quaternion planeRotation = Quaternion.identity; // Default rotation
 
-        if (planeObject1 == null)
+        GameObject planeObject = Instantiate(planePrefab, pointPosition, planeRotation);
+        PlaneSlice_EzySlice planeSlice = planeObject.GetComponent<PlaneSlice_EzySlice>();
+
+        Transform planeTransform = planeObject.gameObject.transform;
+        planeTransform.rotation = Quaternion.identity; // Adjust as needed
+        planeTransform.SetParent(target.transform);
+
+        planeSlice.target = target;
+
+        if (spawnedPlanes.Count > 0)
         {
-            planeObject1 = Instantiate(planePrefab, pointPosition, planeRotation);
-            planeSlice1 = planeObject1.GetComponent<PlaneSlice_EzySlice>();
-
-            Transform planeTransform1 = planeObject1.gameObject.transform;
-            planeTransform1.transform.rotation = Quaternion.identity; // Adjust as needed
-            planeTransform1.transform.SetParent(target.transform);
-
-            planeSlice1.firstPlane = planeTransform1;
-            planeSlice1.target = target;
+            planeSlice.firstPlane = slicingPlanes[0].firstPlane;
+            planeSlice.secondPlane = planeTransform;
+            slicingPlanes[0].secondPlane = planeTransform;
         }
         else
         {
-            planeObject2 = Instantiate(planePrefab, pointPosition, planeRotation);
-            planeSlice2 = planeObject2.GetComponent<PlaneSlice_EzySlice>();
-
-            Transform planeTransform2 = planeObject2.gameObject.transform;
-            planeTransform2.transform.rotation = Quaternion.identity; // Adjust as needed
-            planeTransform2.transform.SetParent(target.transform);
-
-            planeSlice1.secondPlane = planeTransform2;
-            planeSlice2.secondPlane = planeTransform2;
-            planeSlice2.firstPlane = planeSlice1.transform;
-            planeSlice2.target = target;
+            planeSlice.firstPlane = planeTransform;
         }
+
+        spawnedPlanes.Add(planeObject);
+        slicingPlanes.Add(planeSlice);
     }
+
 
     public void UndoSpawnPlane()
     {
-        if (planeObject2 != null)
+        if (spawnedPlanes.Count > 0)
         {
-            Destroy(planeObject2);
-            planeObject2 = null;
-            planeSlice2 = null;
-        }
-        else if (planeObject1 != null)
-        {
-            Destroy(planeObject1);
-            planeObject1 = null;
-            planeSlice1 = null;
+            GameObject lastPlane = spawnedPlanes[spawnedPlanes.Count - 1];
+            PlaneSlice_EzySlice lastSlicingPlane = slicingPlanes[slicingPlanes.Count - 1];
+
+            Destroy(lastPlane);
+
+            spawnedPlanes.RemoveAt(spawnedPlanes.Count - 1);
+            slicingPlanes.RemoveAt(slicingPlanes.Count - 1);
+
+            Debug.Log("Plane destroyed.");
         }
     }
 }

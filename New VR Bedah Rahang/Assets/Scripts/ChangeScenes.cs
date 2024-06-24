@@ -19,9 +19,4 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneManager.LoadScene("Interaction 3 (Transparent Plane)");
     }
-
-    public void Scene4()
-    {
-        SceneManager.LoadScene("Interaction 4 (Normal Slice)");
-    }
 }

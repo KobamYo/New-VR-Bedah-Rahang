@@ -8,13 +8,8 @@ public class SpawnPlane_V3 : MonoBehaviour
     public GameObject planePrefab;
 
     [HideInInspector]
-    public GameObject planeObject1;
-
-    [HideInInspector]
-    public GameObject planeObject2;
-
-    private PlaneSlice_EzySlice slicingPlane1;
-    private PlaneSlice_EzySlice slicingPlane2;
+    public List<GameObject> spawnedPlanes = new List<GameObject>();
+    private List<PlaneSlice_EzySlice> slicingPlanes = new List<PlaneSlice_EzySlice>();
 
     private bool hasCollided = false;
 
@@ -38,45 +33,42 @@ public class SpawnPlane_V3 : MonoBehaviour
 
     public void SpawnPlane()
     {
-        if (planeObject1 == null)
-        {
-            planeObject1 = Instantiate(planePrefab, this.transform.position, this.transform.rotation);
-            slicingPlane1 = planeObject1.GetComponent<PlaneSlice_EzySlice>();
-            planeObject1.transform.SetParent(target.transform);
+        GameObject planeObject = Instantiate(planePrefab, this.transform.position, this.transform.rotation);
+        PlaneSlice_EzySlice slicingPlane = planeObject.GetComponent<PlaneSlice_EzySlice>();
 
-            slicingPlane1.firstPlane = planeObject1.transform;
-            slicingPlane1.target = target;
-        }
-        else if (planeObject2 == null)
+        if (spawnedPlanes.Count > 0)
         {
-            
-            planeObject2 = Instantiate(planePrefab, this.transform.position, this.transform.rotation);
-            planeObject2.transform.Rotate(180, 0, 0); // Flip the rotation of the second plane opposite of this finger plane
-            slicingPlane2 = planeObject2.GetComponent<PlaneSlice_EzySlice>();
-            planeObject2.transform.SetParent(target.transform);
-
-            slicingPlane1.secondPlane = planeObject2.transform;
-            slicingPlane2.firstPlane = slicingPlane1.firstPlane;
-            slicingPlane2.secondPlane = planeObject2.transform;
-            slicingPlane2.target = target;
+            // Flip the rotation of the subsequent planes
+            planeObject.transform.Rotate(180, 0, 0);
+            slicingPlane.firstPlane = slicingPlanes[0].firstPlane;
+            slicingPlane.secondPlane = planeObject.transform;
+            slicingPlanes[0].secondPlane = planeObject.transform;
         }
+        else
+        {
+            slicingPlane.firstPlane = planeObject.transform;
+        }
+
+        planeObject.transform.SetParent(target.transform);
+        slicingPlane.target = target;
+
+        spawnedPlanes.Add(planeObject);
+        slicingPlanes.Add(slicingPlane);
     }
 
     public void UndoSpawnPlane()
     {
-        if (planeObject2 != null)
+        if (spawnedPlanes.Count > 0)
         {
-            Destroy(planeObject2);
-            planeObject2 = null;
-            slicingPlane2 = null;
-            Debug.Log("Second Plane destroyed.");
-        }
-        else if (planeObject1 != null)
-        {
-            Destroy(planeObject1);
-            planeObject1 = null;
-            slicingPlane1 = null;
-            Debug.Log("First Plane destroyed.");
+            GameObject lastPlane = spawnedPlanes[spawnedPlanes.Count - 1];
+            PlaneSlice_EzySlice lastSlicingPlane = slicingPlanes[slicingPlanes.Count - 1];
+
+            Destroy(lastPlane);
+
+            spawnedPlanes.RemoveAt(spawnedPlanes.Count - 1);
+            slicingPlanes.RemoveAt(slicingPlanes.Count - 1);
+
+            Debug.Log("Plane destroyed.");
         }
     }
 }

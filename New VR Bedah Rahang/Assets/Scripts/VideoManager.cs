@@ -3,18 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+using TMPro;
 
 public class VideoManager : MonoBehaviour
 {
     public VideoPlayer videoPlayer;
     public RawImage rawImage;
     public VideoClip[] videoClips;
+    public TextMeshProUGUI videoTitle;
+    public string[] videoTitles;
 
     private int currentIndex = 0;
 
     void Start()
     {
-        if (videoClips.Length > 0)
+        if (videoClips.Length > 0 && videoTitles.Length == videoClips.Length)
         {
             PlayVideo(currentIndex);
         }
@@ -46,5 +49,6 @@ public class VideoManager : MonoBehaviour
     {
         videoPlayer.clip = videoClips[index];
         videoPlayer.Play();
+        videoTitle.text = videoTitles[index];
     }
 }
