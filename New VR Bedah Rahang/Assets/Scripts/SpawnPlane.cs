@@ -13,14 +13,12 @@ public class SpawnPlane : MonoBehaviour
 
     private GameObject startPoint;
     private GameObject endPoint;
-    
-    private bool lineDrawn = false;
 
     void Update()
     {
         GameObject[] points = GameObject.FindGameObjectsWithTag("Point");
         
-        if (points.Length >= 2 && !lineDrawn)
+        if (points.Length >= 2)
         {
             startPoint = points[0];
             endPoint = points[1];
@@ -29,8 +27,6 @@ public class SpawnPlane : MonoBehaviour
             Destroy(startPoint);
             Destroy(endPoint);
         }
-
-        
     }
 
     private void SpawnPlaneBetweenPoints()
@@ -40,27 +36,29 @@ public class SpawnPlane : MonoBehaviour
         Quaternion planeRotation = Quaternion.LookRotation(direction);
 
         GameObject planeObject = Instantiate(planePrefab, planePosition, planeRotation);
-        PlaneSlice_EzySlice planeSlice = planeObject.GetComponent<PlaneSlice_EzySlice>();
-
+        PlaneSlice_EzySlice slicingPlane = planeObject.GetComponent<PlaneSlice_EzySlice>();
         Transform planeTransform = planeObject.gameObject.transform;
+
         planeTransform.rotation = Quaternion.LookRotation(direction, Vector3.up);
         planeTransform.SetParent(target.transform);
+        slicingPlane.target = target;
 
-        planeSlice.target = target;
-
-        if (spawnedPlanes.Count > 0)
+        if (spawnedPlanes.Count == 0)
         {
-            planeSlice.firstPlane = slicingPlanes[0].firstPlane;
-            planeSlice.secondPlane = planeTransform;
-            slicingPlanes[0].secondPlane = planeTransform;
+            // First plane
+            slicingPlane.firstPlane = planeTransform;
         }
-        else
+        else if (spawnedPlanes.Count == 1)
         {
-            planeSlice.firstPlane = planeTransform;
+            // Second plane
+            planeObject.transform.Rotate(180, 0, 0);
+            slicingPlane.firstPlane = slicingPlanes[0].firstPlane;
+            slicingPlane.secondPlane = planeTransform;
+            slicingPlanes[0].secondPlane = planeTransform;
         }
 
         spawnedPlanes.Add(planeObject);
-        slicingPlanes.Add(planeSlice);
+        slicingPlanes.Add(slicingPlane);
     }
 
     public void UndoSpawnPlane()
@@ -75,7 +73,11 @@ public class SpawnPlane : MonoBehaviour
             spawnedPlanes.RemoveAt(spawnedPlanes.Count - 1);
             slicingPlanes.RemoveAt(slicingPlanes.Count - 1);
 
-            Debug.Log("Plane destroyed.");
+            // Update the references in the remaining planes
+            if (slicingPlanes.Count > 0)
+            {
+                slicingPlanes[0].secondPlane = slicingPlanes.Count > 1 ? slicingPlanes[1].transform : null;
+            }
         }
     }
 }

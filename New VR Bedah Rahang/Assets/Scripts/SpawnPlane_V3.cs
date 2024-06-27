@@ -33,27 +33,31 @@ public class SpawnPlane_V3 : MonoBehaviour
 
     public void SpawnPlane()
     {
-        GameObject planeObject = Instantiate(planePrefab, this.transform.position, this.transform.rotation);
-        PlaneSlice_EzySlice slicingPlane = planeObject.GetComponent<PlaneSlice_EzySlice>();
-
-        if (spawnedPlanes.Count > 0)
+        if (hasCollided == true)
         {
-            // Flip the rotation of the subsequent planes
-            planeObject.transform.Rotate(180, 0, 0);
-            slicingPlane.firstPlane = slicingPlanes[0].firstPlane;
-            slicingPlane.secondPlane = planeObject.transform;
-            slicingPlanes[0].secondPlane = planeObject.transform;
-        }
-        else
-        {
-            slicingPlane.firstPlane = planeObject.transform;
-        }
+            GameObject planeObject = Instantiate(planePrefab, this.transform.position, this.transform.rotation);
+            PlaneSlice_EzySlice slicingPlane = planeObject.GetComponent<PlaneSlice_EzySlice>();
 
-        planeObject.transform.SetParent(target.transform);
-        slicingPlane.target = target;
+            planeObject.transform.SetParent(target.transform);
+            slicingPlane.target = target;
 
-        spawnedPlanes.Add(planeObject);
-        slicingPlanes.Add(slicingPlane);
+            if (spawnedPlanes.Count == 0)
+            {
+                // First plane
+                slicingPlane.firstPlane = planeObject.transform;
+            }
+            else if (spawnedPlanes.Count == 1)
+            {
+                // Second plane
+                planeObject.transform.Rotate(180, 0, 0);
+                slicingPlane.firstPlane = slicingPlanes[0].firstPlane;
+                slicingPlane.secondPlane = planeObject.transform;
+                slicingPlanes[0].secondPlane = planeObject.transform;
+            }
+
+            spawnedPlanes.Add(planeObject);
+            slicingPlanes.Add(slicingPlane);
+        }
     }
 
     public void UndoSpawnPlane()
@@ -68,7 +72,20 @@ public class SpawnPlane_V3 : MonoBehaviour
             spawnedPlanes.RemoveAt(spawnedPlanes.Count - 1);
             slicingPlanes.RemoveAt(slicingPlanes.Count - 1);
 
-            Debug.Log("Plane destroyed.");
+            if (slicingPlanes.Count > 0)
+            {
+                // Update the secondPlane reference of the remaining PlaneSlice_EzySlice if needed
+                slicingPlanes[0].secondPlane = slicingPlanes.Count > 1 ? slicingPlanes[1].transform : null;
+            }
+            else
+            {
+                // Reset PlaneSlice_EzySlice references when no planes are left
+                foreach (PlaneSlice_EzySlice plane in slicingPlanes)
+                {
+                    plane.firstPlane = null;
+                    plane.secondPlane = null;
+                }
+            }
         }
     }
 }

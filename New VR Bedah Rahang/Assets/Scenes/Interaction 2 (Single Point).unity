@@ -4337,8 +4337,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 441310083}
   planePrefab: {fileID: 7695875845161576432, guid: fd096f26b8c5b0f40a7206a329ad21f6, type: 3}
-  planeObject1: {fileID: 0}
-  planeObject2: {fileID: 0}
+  spawnedPlanes: []
 --- !u!1 &438484559
 GameObject:
   m_ObjectHideFlags: 0
@@ -6953,16 +6952,16 @@ MonoBehaviour:
   videoPlayer: {fileID: 148384800}
   rawImage: {fileID: 892437635}
   videoClips:
-  - {fileID: 32900000, guid: 4fb3b3b83e9437241b9861aa96e4771f, type: 3}
-  - {fileID: 32900000, guid: be0cef7746f7b814ebcb4482124f6072, type: 3}
-  - {fileID: 32900000, guid: 600517a06aff7644d8588f6862e8eb3a, type: 3}
-  - {fileID: 32900000, guid: df896f866bfec0c40bb9dd945f9f7658, type: 3}
-  - {fileID: 32900000, guid: 1cb138db5e307894bb72471facc61e68, type: 3}
+  - {fileID: 32900000, guid: 60c5850dc33cf7449abe7924e272984f, type: 3}
+  - {fileID: 32900000, guid: 4489a659c7c68e74db5cc48bc6dc7f1c, type: 3}
+  - {fileID: 32900000, guid: 4591583f63c05a643890a30ab345218d, type: 3}
+  - {fileID: 32900000, guid: e6dfb4bbaff8dbd49b9e8e416be45744, type: 3}
+  - {fileID: 32900000, guid: f82e8ea31d400da4185288432465871f, type: 3}
   videoTitle: {fileID: 145128262}
   videoTitles:
   - How to Use Ruler
   - How to Spawn Plane
-  - How to Undo Plane
+  - How to Undo Spawn Plane
   - How to Slice
   - How to Undo Slice
 --- !u!224 &892437634
