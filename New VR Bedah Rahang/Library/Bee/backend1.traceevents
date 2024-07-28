@@ -1,0 +1,233 @@
+{ "cat":"", "pid":12345, "tid":0, "ts":0, "ph":"M", "name":"process_name", "args": { "name":"bee_backend" } }
+,{ "pid":12345, "tid":0, "ts":1722159391085596, "dur":19216, "ph":"X", "name": "DriverInitData",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391104822, "dur":502, "ph":"X", "name": "RemoveStaleOutputs",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391105383, "dur":428, "ph":"X", "name": "BuildQueueInit",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391105825, "dur":2609, "ph":"X", "name": "EnqueueRequestedNodes",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391108436, "dur":94078, "ph":"X", "name": "WaitForBuildFinished", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391202515, "dur":506, "ph":"X", "name": "JoinBuildThread",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391203187, "dur":1567, "ph":"X", "name": "Tundra",  "args": { "detail":"Write AllBuiltNodes" }}
+,{ "pid":12345, "tid":1, "ts":1722159391106328, "dur":2698, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1722159391109026, "dur":720, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":1, "ts":1722159391109820, "dur":77, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Unity\\2022.3.14f1\\Editor\\Data\\MonoBleedingEdge\\lib\\mono\\unityjit-win32\\System.Net.Http.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391109820, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/System.Net.Http.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391109960, "dur":547, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Hub.Runtime.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391109959, "dur":548, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Hub.Runtime.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391110518, "dur":259, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391110517, "dur":260, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.TextMeshPro.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391110834, "dur":472, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.VR.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391110834, "dur":472, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.VR.dll" }}
+,{ "pid":12345, "tid":1, "ts":1722159391111372, "dur":4119, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets2.assets" }}
+,{ "pid":12345, "tid":1, "ts":1722159391116065, "dur":86390, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1722159391105751, "dur":2693, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1722159391108445, "dur":1010, "ph":"X", "name": "CheckDagSignatures",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":2, "ts":1722159391109905, "dur":1896, "ph":"X", "name": "WriteText",  "args": { "detail":"Library/Bee/artifacts/csharpactions/boot.config_tyr4.info" }}
+,{ "pid":12345, "tid":2, "ts":1722159391111802, "dur":93, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\PlayerDataCache\\Win64\\Data\\boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1722159391111802, "dur":307, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"AddBootConfigGUID Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1722159391112350, "dur":88862, "ph":"X", "name": "AddBootConfigGUID",  "args": { "detail":"Library/Bee/artifacts/WinPlayerBuildProgram/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1722159391201988, "dur":64, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"Library\\Bee\\artifacts\\WinPlayerBuildProgram\\boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1722159391201987, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/boot.config" }}
+,{ "pid":12345, "tid":2, "ts":1722159391202068, "dur":300, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/boot.config" }}
+,{ "pid":12345, "tid":3, "ts":1722159391105875, "dur":2707, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1722159391108583, "dur":105, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1722159391108688, "dur":90, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1722159391108818, "dur":1053, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1722159391109899, "dur":1586, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":3, "ts":1722159391111592, "dur":6785, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/level2" }}
+,{ "pid":12345, "tid":3, "ts":1722159391118396, "dur":84128, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391105812, "dur":2636, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391108456, "dur":114, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391108570, "dur":449, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391109020, "dur":451, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391109512, "dur":89, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391109620, "dur":526, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391110148, "dur":1101, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":4, "ts":1722159391110147, "dur":1103, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/UnityEngine.UI.dll" }}
+,{ "pid":12345, "tid":4, "ts":1722159391111266, "dur":289, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":4, "ts":1722159391111619, "dur":7361, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/level0" }}
+,{ "pid":12345, "tid":4, "ts":1722159391118998, "dur":83592, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1722159391105847, "dur":2726, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1722159391108574, "dur":388, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1722159391108962, "dur":670, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1722159391109641, "dur":626, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1722159391110323, "dur":1489, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.WitAi.Conduit.dll" }}
+,{ "pid":12345, "tid":5, "ts":1722159391110323, "dur":1491, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.WitAi.Conduit.dll" }}
+,{ "pid":12345, "tid":5, "ts":1722159391111814, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":5, "ts":1722159391111881, "dur":90548, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1722159391105921, "dur":2961, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1722159391108883, "dur":855, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1722159391109748, "dur":154, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1722159391109905, "dur":50, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":6, "ts":1722159391109957, "dur":1775, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.Chess.dll" }}
+,{ "pid":12345, "tid":6, "ts":1722159391109957, "dur":1775, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.Chess.dll" }}
+,{ "pid":12345, "tid":6, "ts":1722159391111752, "dur":7048, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/globalgamemanagers" }}
+,{ "pid":12345, "tid":6, "ts":1722159391118820, "dur":83623, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1722159391105958, "dur":2931, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1722159391108889, "dur":845, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1722159391109849, "dur":1720, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":7, "ts":1722159391111580, "dur":6584, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/level1" }}
+,{ "pid":12345, "tid":7, "ts":1722159391118217, "dur":84350, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1722159391106002, "dur":2894, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1722159391108896, "dur":780, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1722159391109727, "dur":157, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1722159391109887, "dur":1652, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":8, "ts":1722159391111594, "dur":6887, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/resources.assets" }}
+,{ "pid":12345, "tid":8, "ts":1722159391118506, "dur":83975, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1722159391106043, "dur":2859, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1722159391108902, "dur":773, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1722159391109694, "dur":315, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1722159391110016, "dur":1435, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.VoiceSDK.Mic.Common.dll" }}
+,{ "pid":12345, "tid":9, "ts":1722159391110016, "dur":1435, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.VoiceSDK.Mic.Common.dll" }}
+,{ "pid":12345, "tid":9, "ts":1722159391111452, "dur":82, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":9, "ts":1722159391111578, "dur":2165, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Resources/unity_builtin_extra" }}
+,{ "pid":12345, "tid":9, "ts":1722159391113751, "dur":88782, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1722159391106065, "dur":2843, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1722159391108909, "dur":752, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1722159391109670, "dur":353, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":10, "ts":1722159391110028, "dur":66, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.VoiceSDK.Mic.Other.dll" }}
+,{ "pid":12345, "tid":10, "ts":1722159391110024, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.VoiceSDK.Mic.Other.dll" }}
+,{ "pid":12345, "tid":10, "ts":1722159391110105, "dur":1677, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":10, "ts":1722159391110104, "dur":1678, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.Timeline.dll" }}
+,{ "pid":12345, "tid":10, "ts":1722159391111794, "dur":90716, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1722159391106097, "dur":2819, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1722159391108917, "dur":738, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1722159391109670, "dur":600, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":11, "ts":1722159391110276, "dur":1083, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.LightTraits.dll" }}
+,{ "pid":12345, "tid":11, "ts":1722159391110273, "dur":1086, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.LightTraits.dll" }}
+,{ "pid":12345, "tid":11, "ts":1722159391111375, "dur":16287, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets0.assets.resS" }}
+,{ "pid":12345, "tid":11, "ts":1722159391127689, "dur":74838, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1722159391106121, "dur":2802, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1722159391108924, "dur":722, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1722159391109654, "dur":444, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1722159391110104, "dur":933, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.InputSystem.dll" }}
+,{ "pid":12345, "tid":12, "ts":1722159391110100, "dur":938, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.InputSystem.dll" }}
+,{ "pid":12345, "tid":12, "ts":1722159391111266, "dur":120, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":12, "ts":1722159391111387, "dur":94, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":12, "ts":1722159391111488, "dur":25379, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets0.assets" }}
+,{ "pid":12345, "tid":12, "ts":1722159391136884, "dur":65560, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1722159391106156, "dur":2813, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1722159391108969, "dur":659, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1722159391109649, "dur":2222, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":13, "ts":1722159391111873, "dur":90582, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1722159391106136, "dur":2794, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1722159391108930, "dur":732, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1722159391109679, "dur":651, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":14, "ts":1722159391110336, "dur":1457, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.Dictation.dll" }}
+,{ "pid":12345, "tid":14, "ts":1722159391110332, "dur":1462, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.Dictation.dll" }}
+,{ "pid":12345, "tid":14, "ts":1722159391111827, "dur":90674, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1722159391106172, "dur":2804, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1722159391108977, "dur":667, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1722159391109657, "dur":393, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":15, "ts":1722159391110054, "dur":1599, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\BzKovSoft.CharacterSlicer.Samples.dll" }}
+,{ "pid":12345, "tid":15, "ts":1722159391110053, "dur":1600, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/BzKovSoft.CharacterSlicer.Samples.dll" }}
+,{ "pid":12345, "tid":15, "ts":1722159391111667, "dur":7262, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/globalgamemanagers.assets" }}
+,{ "pid":12345, "tid":15, "ts":1722159391118965, "dur":83465, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1722159391106209, "dur":2774, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1722159391108983, "dur":648, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1722159391109638, "dur":418, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":16, "ts":1722159391110060, "dur":215, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.ShapesConduit.dll" }}
+,{ "pid":12345, "tid":16, "ts":1722159391110058, "dur":217, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.ShapesConduit.dll" }}
+,{ "pid":12345, "tid":16, "ts":1722159391110285, "dur":71, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\AssistantCoreSDKRuntime.dll" }}
+,{ "pid":12345, "tid":16, "ts":1722159391110285, "dur":71, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/AssistantCoreSDKRuntime.dll" }}
+,{ "pid":12345, "tid":16, "ts":1722159391110368, "dur":916, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.LipSync.dll" }}
+,{ "pid":12345, "tid":16, "ts":1722159391110367, "dur":918, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.LipSync.dll" }}
+,{ "pid":12345, "tid":16, "ts":1722159391111373, "dur":25410, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets1.resource" }}
+,{ "pid":12345, "tid":16, "ts":1722159391136818, "dur":65631, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1722159391106228, "dur":2761, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1722159391108990, "dur":472, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1722159391109623, "dur":208, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1722159391109839, "dur":281, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":17, "ts":1722159391110123, "dur":76, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.Shapes.dll" }}
+,{ "pid":12345, "tid":17, "ts":1722159391110123, "dur":77, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.Shapes.dll" }}
+,{ "pid":12345, "tid":17, "ts":1722159391110212, "dur":181, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\UnityEngine.SpatialTracking.dll" }}
+,{ "pid":12345, "tid":17, "ts":1722159391110212, "dur":182, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/UnityEngine.SpatialTracking.dll" }}
+,{ "pid":12345, "tid":17, "ts":1722159391110407, "dur":1406, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.Platform.dll" }}
+,{ "pid":12345, "tid":17, "ts":1722159391110407, "dur":1407, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.Platform.dll" }}
+,{ "pid":12345, "tid":17, "ts":1722159391111844, "dur":90708, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391106252, "dur":2744, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391108996, "dur":605, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391109627, "dur":426, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110057, "dur":207, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.XR.Oculus.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110057, "dur":212, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.XR.Oculus.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110287, "dur":284, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\UnityEngine.XR.LegacyInputHelpers.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110286, "dur":286, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/UnityEngine.XR.LegacyInputHelpers.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110588, "dur":120, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.WitAi.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110587, "dur":121, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.WitAi.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110716, "dur":88, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.AudioManager.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110716, "dur":89, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.AudioManager.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110832, "dur":107, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.Interaction.OVR.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110832, "dur":107, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.Interaction.OVR.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110966, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Facebook.Wit.Dictation.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391110966, "dur":62, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Facebook.Wit.Dictation.dll" }}
+,{ "pid":12345, "tid":18, "ts":1722159391111069, "dur":64, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391111145, "dur":66, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391111237, "dur":78, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":18, "ts":1722159391111372, "dur":31017, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets0.resource" }}
+,{ "pid":12345, "tid":18, "ts":1722159391142402, "dur":60030, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1722159391106274, "dur":2728, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1722159391109002, "dur":584, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1722159391109595, "dur":355, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":19, "ts":1722159391109989, "dur":376, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391109988, "dur":378, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.VisualScripting.State.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110375, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\VoiceSDK.Dictation.Runtime.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110374, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/VoiceSDK.Dictation.Runtime.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110446, "dur":57, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.BuiltInTimer.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110446, "dur":58, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.BuiltInTimer.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110517, "dur":65, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.Interaction.OVR.Samples.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110516, "dur":66, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.Interaction.OVR.Samples.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110641, "dur":63, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.WitAi.TTS.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110640, "dur":64, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.WitAi.TTS.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110712, "dur":218, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391110712, "dur":218, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.VisualScripting.Flow.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391111026, "dur":205, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391111025, "dur":206, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Assembly-CSharp.dll" }}
+,{ "pid":12345, "tid":19, "ts":1722159391111374, "dur":4367, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets1.assets" }}
+,{ "pid":12345, "tid":19, "ts":1722159391115802, "dur":86730, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1722159391106289, "dur":2721, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1722159391109010, "dur":546, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1722159391109570, "dur":550, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110122, "dur":566, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.Interaction.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110121, "dur":568, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.Interaction.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110700, "dur":61, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Oculus.Spatializer.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110700, "dur":61, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Oculus.Spatializer.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110770, "dur":109, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\BzKovSoft.ObjectSlicer.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110769, "dur":110, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/BzKovSoft.ObjectSlicer.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110895, "dur":78, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\VoiceSDK.Runtime.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110895, "dur":78, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/VoiceSDK.Runtime.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110988, "dur":131, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.WitAi.Lib.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391110988, "dur":132, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.WitAi.Lib.dll" }}
+,{ "pid":12345, "tid":20, "ts":1722159391111174, "dur":117, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":20, "ts":1722159391111371, "dur":27089, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/sharedassets2.resource" }}
+,{ "pid":12345, "tid":20, "ts":1722159391138476, "dur":64024, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1722159391106305, "dur":2711, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1722159391109017, "dur":533, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1722159391109563, "dur":260, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1722159391109857, "dur":1988, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":21, "ts":1722159391111856, "dur":90603, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1722159391106320, "dur":2703, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1722159391109023, "dur":435, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1722159391109550, "dur":536, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":22, "ts":1722159391110088, "dur":1555, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.InputSystem.ForUI.dll" }}
+,{ "pid":12345, "tid":22, "ts":1722159391110088, "dur":1556, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.InputSystem.ForUI.dll" }}
+,{ "pid":12345, "tid":22, "ts":1722159391111659, "dur":11710, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/globalgamemanagers.assets.resS" }}
+,{ "pid":12345, "tid":22, "ts":1722159391123433, "dur":79017, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391105824, "dur":2634, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391108460, "dur":107, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391108568, "dur":105, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391108673, "dur":98, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391108771, "dur":88, "ph":"X", "name": "EarlyStatNonGeneratedFile",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391108860, "dur":824, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391109723, "dur":200, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391109927, "dur":1905, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":23, "ts":1722159391111835, "dur":90628, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1722159391106336, "dur":2694, "ph":"X", "name": "FirstLock",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1722159391109030, "dur":712, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1722159391109870, "dur":351, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1722159391110225, "dur":723, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":24, "ts":1722159391110224, "dur":724, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Unity.VisualScripting.Core.dll" }}
+,{ "pid":12345, "tid":24, "ts":1722159391110964, "dur":62, "ph":"X", "name": "ComputeFileSignatureSha1",  "args": { "detail":"D:\\Foldernya Diablo\\TA\\New-VR-Bedah-Rahang\\New VR Bedah Rahang\\Library\\Bee\\PlayerScriptAssemblies\\Meta.Voice.Samples.LiveUnderstanding.dll" }}
+,{ "pid":12345, "tid":24, "ts":1722159391110963, "dur":63, "ph":"X", "name": "CheckInputSignature",  "args": { "detail":"CopyFiles D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/Managed/Meta.Voice.Samples.LiveUnderstanding.dll" }}
+,{ "pid":12345, "tid":24, "ts":1722159391111313, "dur":212, "ph":"X", "name": "OutputFilesMissingFor",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":24, "ts":1722159391111584, "dur":7467, "ph":"X", "name": "CopyFiles",  "args": { "detail":"D:/Foldernya Diablo/TA/Test Build Windows/New VR Bedah Rahang_Data/resources.assets.resS" }}
+,{ "pid":12345, "tid":24, "ts":1722159391119066, "dur":83476, "ph":"X", "name": "WaitingForWork", "cname":"thread_state_sleeping",  "args": { "detail":"" }}
+,{ "pid":12345, "tid":0, "ts":1722159391206453, "dur":501, "ph":"X", "name": "ProfilerWriteOutput" }
+,
