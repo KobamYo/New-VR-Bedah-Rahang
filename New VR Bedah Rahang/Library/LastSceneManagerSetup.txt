@@ -1,5 +1,5 @@
 sceneSetups:
-- path: Assets/Scenes/Interaction 4 (Normal Slice).unity
+- path: Assets/Scenes/Interaction 3 (Transparent Plane).unity
   isLoaded: 1
   isActive: 1
   isSubScene: 0

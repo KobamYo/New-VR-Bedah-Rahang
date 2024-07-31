@@ -2,6 +2,7 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - ChangeScenes
+    - LIV.SDK.Unity.LIV
     - PlaneSlice_EzySlice
     - PoseController
     - PoseController_V2
@@ -583,6 +584,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 20474}
     - Class: 114
+      Script: {instanceID: 20482}
+    - Class: 114
       Script: {instanceID: 20520}
     - Class: 114
       Script: {instanceID: 20638}
@@ -818,6 +821,8 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 20408}
     - Class: 114
+      Script: {instanceID: 20482}
+    - Class: 114
       Script: {instanceID: 20520}
     - Class: 114
       Script: {instanceID: 20638}
@@ -1042,6 +1047,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 20292}
     - Class: 114
       Script: {instanceID: 20408}
+    - Class: 114
+      Script: {instanceID: 20482}
     - Class: 114
       Script: {instanceID: 20520}
     - Class: 114
